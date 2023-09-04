@@ -49,7 +49,7 @@ Material:
     - _Float_1: 0
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _WaterToIce: 1
+    - _WaterToIce: 0.283
     m_Colors: []
   m_BuildTextureStacks: []
 --- !u!114 &1828247865839978786
