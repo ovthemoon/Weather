@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestMove : MonoBehaviour
+public class TestMoveStencil : MonoBehaviour
 {
     public float speed = 5f;
     // Start is called before the first frame update
@@ -16,7 +16,6 @@ public class TestMove : MonoBehaviour
     {
         float z = Input.GetAxis("Horizontal");
         float x = Input.GetAxis("Vertical");
-        transform.position += new Vector3(x*speed*Time.deltaTime, 0, -z * speed * Time.deltaTime);
-
+        transform.position += new Vector3(-x * speed * Time.deltaTime, 0, -z * speed * Time.deltaTime);
     }
 }
