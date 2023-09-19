@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterMoving : MonoBehaviour
+public class CharacterMove : MonoBehaviour
 {
     //private 변수를 inspector에서 접근 가능하게 해줌
     [SerializeField]
@@ -53,8 +53,13 @@ public class CharacterMoving : MonoBehaviour
         TryJump();
         TryRun();
         Move();
-        CameraRotation();
+        if (theCamera != null)
+        {
+            CameraRotation();
+            
+        }
         CharacterRotation();
+
     }
 
     // 지면 체크.
@@ -130,8 +135,8 @@ public class CharacterMoving : MonoBehaviour
         float yRotation = Input.GetAxisRaw("Mouse X");
         Vector3 characterRotationY = new Vector3(0f, yRotation, 0f) * lookSensitivity;
         myRigid.MoveRotation(myRigid.rotation * Quaternion.Euler(characterRotationY));
-        Debug.Log(myRigid.rotation);
-        Debug.Log(myRigid.rotation.eulerAngles);
+        //Debug.Log(myRigid.rotation);
+       // Debug.Log(myRigid.rotation.eulerAngles);
     }
 
     //상하 카메라 회전
