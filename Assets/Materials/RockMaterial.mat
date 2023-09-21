@@ -99,7 +99,7 @@ Material:
     - _Height: 1.98
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _SnowOpacity: 1
+    - _SnowOpacity: 0
     m_Colors:
     - _SnowDirection: {r: 0, g: 11.23, b: 0, a: 0}
     - _Vector3: {r: 0, g: 37.57, b: 0, a: 0}
