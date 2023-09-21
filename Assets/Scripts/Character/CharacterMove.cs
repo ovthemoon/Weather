@@ -6,9 +6,9 @@ public class CharacterMoving : MonoBehaviour
 {
     //private 변수를 inspector에서 접근 가능하게 해줌
     [SerializeField]
-    private float walkSpeed;
+    private float walkSpeed = 5;
     [SerializeField]
-    private float runSpeed;
+    private float runSpeed = 15;
 
     private float applySpeed;
 
@@ -16,7 +16,7 @@ public class CharacterMoving : MonoBehaviour
     private float jumpForce;
 
     // 상태 변수
-    private bool isRun = false;
+    //private bool isRun = false;
     private bool isGround = true;
 
     // 땅 착지 여부
@@ -51,7 +51,6 @@ public class CharacterMoving : MonoBehaviour
     {
         IsGround();
         TryJump();
-        TryRun();
         Move();
         CameraRotation();
         CharacterRotation();
@@ -81,38 +80,18 @@ public class CharacterMoving : MonoBehaviour
         myRigid.velocity = transform.up * jumpForce;
     }
 
-    // 달리기 시도
-    private void TryRun()
-    {
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-
-            Running();
-        }
-        if (Input.GetKeyUp(KeyCode.LeftShift))
-        {
-
-            RunningCancel();
-        }
-    }
-
-    // 달리기 실행
-    private void Running()
-    {
-        isRun = true;
-        applySpeed = runSpeed;
-    }
-
-
-    // 달리기 취소
-    private void RunningCancel()
-    {
-        isRun = false;
-        applySpeed = walkSpeed;
-    }
-
+ 
     private void Move()
     {
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            applySpeed = runSpeed;
+        }
+        else
+        {
+            applySpeed = walkSpeed;
+        }
+
         float moveDirX = Input.GetAxisRaw("Horizontal");
         float moveDirZ = Input.GetAxisRaw("Vertical");
 
@@ -130,8 +109,8 @@ public class CharacterMoving : MonoBehaviour
         float yRotation = Input.GetAxisRaw("Mouse X");
         Vector3 characterRotationY = new Vector3(0f, yRotation, 0f) * lookSensitivity;
         myRigid.MoveRotation(myRigid.rotation * Quaternion.Euler(characterRotationY));
-        Debug.Log(myRigid.rotation);
-        Debug.Log(myRigid.rotation.eulerAngles);
+        //Debug.Log(myRigid.rotation);
+        //Debug.Log(myRigid.rotation.eulerAngles);
     }
 
     //상하 카메라 회전
