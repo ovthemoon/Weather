@@ -2,36 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterMove : MonoBehaviour
+public class CharacterCloneMove : MonoBehaviour
 {
-    //private ë³€ìˆ˜ë¥¼ inspectorì—ì„œ ì ‘ê·¼ ê°€ëŠ¥í•˜ê²Œ í•´ì¤Œ
+    //private º¯¼ö¸¦ inspector¿¡¼­ Á¢±Ù °¡´ÉÇÏ°Ô ÇØÁÜ
     [SerializeField]
-    private float walkSpeed = 5;
+    private float walkSpeed;
     [SerializeField]
-    private float runSpeed = 15;
+    private float runSpeed;
 
     private float applySpeed;
 
     [SerializeField]
     private float jumpForce;
 
-    // ìƒíƒœ ë³€ìˆ˜
-    //private bool isRun = false;
+    // »óÅÂ º¯¼ö
+    private bool isRun = false;
     private bool isGround = true;
 
-    // ë•… ì°©ì§€ ì—¬ë¶€
+    // ¶¥ ÂøÁö ¿©ºÎ
     private CapsuleCollider capsuleCollider;
 
-    //ë¯¼ê°ë„
+    //¹Î°¨µµ
     [SerializeField]
     private float lookSensitivity;
 
-    //ì¹´ë©”ë¼ í•œê³„
+    //Ä«¸Ş¶ó ÇÑ°è
     [SerializeField]
     private float cameraRotationLimit;
     private float currentCameraRotationX = 0;
 
-    //í•„ìš”í•œ ì»´í¬ë„ŒíŠ¸
+    //ÇÊ¿äÇÑ ÄÄÆ÷³ÍÆ®
     [SerializeField]
     private Camera theCamera;
 
@@ -51,6 +51,7 @@ public class CharacterMove : MonoBehaviour
     {
         IsGround();
         TryJump();
+        TryRun();
         Move();
         if (theCamera != null)
         {
@@ -61,14 +62,14 @@ public class CharacterMove : MonoBehaviour
 
     }
 
-    // ì§€ë©´ ì²´í¬.
+    // Áö¸é Ã¼Å©.
     private void IsGround()
     {
         isGround = Physics.Raycast(transform.position, Vector3.down, capsuleCollider.bounds.extents.y + 0.1f);
     }
 
 
-    // ì í”„ ì‹œë„
+    // Á¡ÇÁ ½Ãµµ
     private void TryJump()
     {
         if (Input.GetKeyDown(KeyCode.Space) && isGround)
@@ -78,29 +79,49 @@ public class CharacterMove : MonoBehaviour
     }
 
 
-    // ì í”„
+    // Á¡ÇÁ
     private void Jump()
     {
 
         myRigid.velocity = transform.up * jumpForce;
     }
 
- 
+    // ´Ş¸®±â ½Ãµµ
+    private void TryRun()
+    {
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+
+            Running();
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+
+            RunningCancel();
+        }
+    }
+
+    // ´Ş¸®±â ½ÇÇà
+    private void Running()
+    {
+        isRun = true;
+        applySpeed = runSpeed;
+    }
+
+
+    // ´Ş¸®±â Ãë¼Ò
+    private void RunningCancel()
+    {
+        isRun = false;
+        applySpeed = walkSpeed;
+    }
+
     private void Move()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            applySpeed = runSpeed;
-        }
-        else
-        {
-            applySpeed = walkSpeed;
-        }
-
         float moveDirX = Input.GetAxisRaw("Horizontal");
         float moveDirZ = Input.GetAxisRaw("Vertical");
 
-        Vector3 moveHorizontal = transform.right * moveDirX;
+        Vector3 moveHorizontal = transform.right * -moveDirX;
         Vector3 moveVertical = transform.forward * moveDirZ;
 
         Vector3 velocity = (moveHorizontal + moveVertical).normalized * walkSpeed;
@@ -108,28 +129,24 @@ public class CharacterMove : MonoBehaviour
         myRigid.MovePosition(transform.position + velocity * Time.deltaTime);
     }
 
-    //ì¢Œìš° ìºë¦­í„° íšŒì „
+    //ÁÂ¿ì Ä³¸¯ÅÍ È¸Àü
     private void CharacterRotation()
     {
         float yRotation = Input.GetAxisRaw("Mouse X");
-        Vector3 characterRotationY = new Vector3(0f, yRotation, 0f) * lookSensitivity;
+        Vector3 characterRotationY = new Vector3(0f, -yRotation, 0f) * lookSensitivity;
         myRigid.MoveRotation(myRigid.rotation * Quaternion.Euler(characterRotationY));
         //Debug.Log(myRigid.rotation);
-
-        //Debug.Log(myRigid.rotation.eulerAngles);
-
        // Debug.Log(myRigid.rotation.eulerAngles);
-
     }
 
-    //ìƒí•˜ ì¹´ë©”ë¼ íšŒì „
+    //»óÇÏ Ä«¸Ş¶ó È¸Àü
     private void CameraRotation()
     {
         float xRotation = Input.GetAxisRaw("Mouse Y");
         float cameraRotationX = xRotation * lookSensitivity;
         currentCameraRotationX -= cameraRotationX;
         currentCameraRotationX = Mathf.Clamp(currentCameraRotationX, -cameraRotationLimit, cameraRotationLimit);
-        //ì¸ìŠ¤í™í„°ì—ì„œ 45ë„ ê°ì„ ë„˜ì–´ì„œì„œ ì¹´ë©”ë¼ê°€ íšŒì „í•˜ì§€ ì•Šë„ë¡ ì„¤ì •í•¨
+        //ÀÎ½ºÆåÅÍ¿¡¼­ 45µµ °¢À» ³Ñ¾î¼­¼­ Ä«¸Ş¶ó°¡ È¸ÀüÇÏÁö ¾Êµµ·Ï ¼³Á¤ÇÔ
 
         theCamera.transform.localEulerAngles = new Vector3(currentCameraRotationX, 0f, 0f);
     }
