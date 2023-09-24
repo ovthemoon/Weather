@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/Scenes/ShaderTest.unity
+    path: Assets/Scenes/TestScenes/ShaderTest.unity
     guid: 538064636a96ae44a834d081a13f50ad
   m_configObjects: {}
