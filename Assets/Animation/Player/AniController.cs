@@ -31,5 +31,9 @@ public class AniController : MonoBehaviour
         {
             anim.SetTrigger("walk");
         }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            anim.SetTrigger("jump");
+        }
     }
 }
