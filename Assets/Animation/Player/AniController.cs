@@ -4,36 +4,27 @@ using UnityEngine;
 
 public class AniController : MonoBehaviour
 {
-    public Animator anim;
+    private Rigidbody rb;
+    Animator animator;
+
+    bool isWalking;
 
     // Start is called before the first frame update
     void Start()
     {
-        anim = GetComponent<Animator>();
+
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKey(KeyCode.W))
         {
-            anim.SetTrigger("walk");
+            isWalking = true;
         }
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            anim.SetTrigger("walk");
-        }
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            anim.SetTrigger("walk");
-        }
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            anim.SetTrigger("walk");
-        }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            anim.SetTrigger("jump");
-        }
+        else
+            isWalking = false;
+        animator.SetBool("IsWalking", isWalking);
     }
 }
