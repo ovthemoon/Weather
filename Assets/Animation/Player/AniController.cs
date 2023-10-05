@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//ÇÊ¼ö ÄÄÆ÷³ÍÆ®
+//ï¿½Ê¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(Animator))]
 public class AniController : MonoBehaviour
@@ -31,9 +31,11 @@ public class AniController : MonoBehaviour
     {
         if (characterMove.GetMovingState())
         {
+
             animator.SetBool("IsWalking", true);
             animator.SetFloat("HorizontalSpeed", Mathf.Clamp(characterMove.GetDirectionVector().x, -1, 1));
             animator.SetFloat("VerticalSpeed", Mathf.Clamp(characterMove.GetDirectionVector().z, -1, 1));
+
         }
         else
             animator.SetBool("IsWalking", false);
