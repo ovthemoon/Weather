@@ -5,30 +5,21 @@ using UnityEngine;
 public class CharacterMove : MonoBehaviour
 {
     //private 변수를 inspector에서 접근 가능하게 해줌
-    [SerializeField]
+    
     private float walkSpeed = 5;
-    [SerializeField]
-    private float runSpeed = 15;
-
-    private float applySpeed;
-
-    [SerializeField]
-    private float jumpForce;
+    private float jumpForce = 5;
 
     // 상태 변수
-    //private bool isRun = false;
     private bool isGround = true;
 
     // 땅 착지 여부
     private CapsuleCollider capsuleCollider;
 
     //민감도
-    [SerializeField]
-    private float lookSensitivity;
+    private float lookSensitivity = 3;
 
     //카메라 한계
-    [SerializeField]
-    private float cameraRotationLimit;
+    private float cameraRotationLimit = 10;
     private float currentCameraRotationX = 0;
 
     //필요한 컴포넌트
@@ -43,7 +34,6 @@ public class CharacterMove : MonoBehaviour
     {
         capsuleCollider = GetComponent<CapsuleCollider>();
         myRigid = GetComponent<Rigidbody>();
-        applySpeed = walkSpeed;
     }
 
     // Update is called once per frame
@@ -88,14 +78,6 @@ public class CharacterMove : MonoBehaviour
  
     private void Move()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            applySpeed = runSpeed;
-        }
-        else
-        {
-            applySpeed = walkSpeed;
-        }
 
         float moveDirX = Input.GetAxisRaw("Horizontal");
         float moveDirZ = Input.GetAxisRaw("Vertical");
@@ -114,12 +96,7 @@ public class CharacterMove : MonoBehaviour
         float yRotation = Input.GetAxisRaw("Mouse X");
         Vector3 characterRotationY = new Vector3(0f, yRotation, 0f) * lookSensitivity;
         myRigid.MoveRotation(myRigid.rotation * Quaternion.Euler(characterRotationY));
-        //Debug.Log(myRigid.rotation);
-
-        //Debug.Log(myRigid.rotation.eulerAngles);
-
-       // Debug.Log(myRigid.rotation.eulerAngles);
-
+  
     }
 
     //상하 카메라 회전
@@ -129,8 +106,7 @@ public class CharacterMove : MonoBehaviour
         float cameraRotationX = xRotation * lookSensitivity;
         currentCameraRotationX -= cameraRotationX;
         currentCameraRotationX = Mathf.Clamp(currentCameraRotationX, -cameraRotationLimit, cameraRotationLimit);
-        //인스펙터에서 45도 각을 넘어서서 카메라가 회전하지 않도록 설정함
-
+        
         theCamera.transform.localEulerAngles = new Vector3(currentCameraRotationX, 0f, 0f);
     }
 }
