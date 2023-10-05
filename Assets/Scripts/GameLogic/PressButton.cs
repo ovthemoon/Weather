@@ -5,6 +5,7 @@ using UnityEngine;
 public class PressButton : MonoBehaviour
 {
     [SerializeField] private Animator animator;
+    [SerializeField] private GameObject portal;
 
     private void OnCollisionStay(Collision collision)
     {
@@ -12,6 +13,9 @@ public class PressButton : MonoBehaviour
         Renderer render = GetComponent<Renderer>();
         render.material.color = Color.green;
         Debug.Log("버튼 눌림");
+
+        portal.GetComponent<Collider>().isTrigger = true;
+        
     }
 
     private void OnCollisionExit(Collision collision)
@@ -20,6 +24,8 @@ public class PressButton : MonoBehaviour
         Renderer render = GetComponent<Renderer>();
         render.material.color = Color.red;
         Debug.Log("버튼 안눌림");
+
+        portal.GetComponent<Collider>().isTrigger = false;
     }
 
 
