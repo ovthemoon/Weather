@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scripts/GameLogic/Portal.cs.meta
 guid: 37774c5aeb2625b479eee99de4cf7f8a
+========
+guid: 5803b13f8276ccf4bb11a74e0ad1f1dc
+>>>>>>>> origin/Develop:Assets/Scripts/GameLogic/PressButton.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
