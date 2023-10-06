@@ -2,38 +2,49 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//�ʼ� ������Ʈ
+[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Animator))]
 public class AniController : MonoBehaviour
 {
-    public Animator anim;
+    private Rigidbody rb;
+    private Animator animator;
+    private CharacterMove characterMove;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        anim = GetComponent<Animator>();
+        characterMove=GetComponent<CharacterMove>();
+        rb = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            anim.SetTrigger("walk");
-        }
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            anim.SetTrigger("walk");
-        }
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            anim.SetTrigger("walk");
-        }
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            anim.SetTrigger("walk");
-        }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            anim.SetTrigger("Jumping");
-        }
+        MoveStateCheck();
+        JumpStateCheck();
+        
     }
+    void MoveStateCheck()
+    {
+        if (characterMove.GetMovingState())
+        {
+
+            animator.SetBool("IsWalking", true);
+            animator.SetFloat("HorizontalSpeed", Mathf.Clamp(characterMove.GetDirectionVector().x, -1, 1));
+            animator.SetFloat("VerticalSpeed", Mathf.Clamp(characterMove.GetDirectionVector().z, -1, 1));
+
+        }
+        else
+            animator.SetBool("IsWalking", false);
+    }
+    void JumpStateCheck()
+    {
+        
+        animator.SetBool("IsGround",characterMove.GetGroundState());
+        animator.SetFloat("VelocityY", rb.velocity.y);
+    }
+    
 }
