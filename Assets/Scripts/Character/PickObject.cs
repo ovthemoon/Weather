@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class PickObject : MonoBehaviour
 {
-    public GameObject item;
+    GameObject item;
     public GameObject tempParent;
     public Transform guide;
 
     private void Start()
     {
+        item = this.gameObject;
         item.GetComponent<Rigidbody>().useGravity = true;
     }
     private void OnMouseDown()
