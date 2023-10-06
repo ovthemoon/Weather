@@ -53,16 +53,20 @@ public class CharacterMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+
+    }
+    private void FixedUpdate()
+    {
         IsGround();
         TryJump();
         Move();
         if (theCamera != null)
         {
             CameraRotation();
-            
+
         }
         CharacterRotation();
-
     }
 
     // 지면 체크.
