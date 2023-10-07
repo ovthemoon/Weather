@@ -29,6 +29,7 @@ public class AniController : MonoBehaviour
     }
     void MoveStateCheck()
     {
+        //characterMove script¿¡¼­ isMoving ¹Þ¾Æ¿È
         if (characterMove.GetMovingState())
         {
             animator.SetBool("IsWalking", true);

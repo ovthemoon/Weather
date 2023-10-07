@@ -8,10 +8,6 @@ public class CharacterMove : MonoBehaviour
     //private 변수를 inspector에서 접근 가능하게 해줌
     [SerializeField]
     private float walkSpeed = 5;
-    [SerializeField]
-    private float runSpeed = 15;
-
-    private float applySpeed;
 
     private float moveDirX;
     private float moveDirZ;
@@ -47,7 +43,6 @@ public class CharacterMove : MonoBehaviour
     {
         capsuleCollider = GetComponent<CapsuleCollider>();
         myRigid = GetComponent<Rigidbody>();
-        applySpeed = walkSpeed;
     }
     
     // Update is called once per frame
@@ -96,17 +91,8 @@ public class CharacterMove : MonoBehaviour
  
     private void Move()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            applySpeed = runSpeed;
-        }
-        else
-        {
-            applySpeed = walkSpeed;
-        }
-
-        moveDirX = Input.GetAxis("Horizontal");
-        moveDirZ = Input.GetAxis("Vertical");
+        moveDirX = Input.GetAxisRaw("Horizontal");
+        moveDirZ = Input.GetAxisRaw("Vertical");
 
         Vector3 moveHorizontal = transform.right * moveDirX;
         Vector3 moveVertical = transform.forward * moveDirZ;
