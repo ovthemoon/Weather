@@ -4,22 +4,16 @@ using UnityEngine;
 
 public class CharacterMove : MonoBehaviour
 {
-    public float groundDetectDistance;
-    //private 변수를 inspector에서 접근 가능하게 해줌
+
+    public float groundDetectDistance = 0.1f;
     
     private float walkSpeed = 5;
     private float jumpForce = 5;
 
-    private float applySpeed;
-
     private float moveDirX;
     private float moveDirZ;
 
-    [SerializeField]
-    private float jumpForce;
-
-    // 상태 변수
-    private bool isGround = true;
+    private bool isGround = true; //캐릭터가 땅에 있는지 확인
     private bool isMoving = false;
 
     // 땅 착지 여부
@@ -50,6 +44,7 @@ public class CharacterMove : MonoBehaviour
     {
         IsGround();
         TryJump();
+
         Move();
         if (theCamera != null)
         {
@@ -57,34 +52,35 @@ public class CharacterMove : MonoBehaviour
             
         }
         CharacterRotation();
-
     }
-
+    
     // 지면 체크.
     private void IsGround()
     {
         //isGround 작동 체크 부탁(raycast 거리값 조절을 위해 GroundDetectDistance(Inpector에서 조절가능)으로 변경하였음)
         isGround = Physics.Raycast(transform.position, Vector3.down, capsuleCollider.bounds.extents.y + groundDetectDistance);
+        isGround = true;
     }
+    
 
     // 점프 시도
     private void TryJump()
     {
         if (Input.GetKeyDown(KeyCode.Space) && isGround)
         {
+            isGround = false;
             Jump();
         }
     }
 
-
     // 점프
     private void Jump()
     {
-
         myRigid.velocity = transform.up * jumpForce;
     }
+    
 
- 
+
     private void Move()
     {
 

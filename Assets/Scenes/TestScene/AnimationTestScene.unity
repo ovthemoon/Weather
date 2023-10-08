@@ -255,7 +255,7 @@ GameObject:
   - component: {fileID: 224296510}
   m_Layer: 0
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -769,7 +769,7 @@ Animator:
   m_GameObject: {fileID: 5963113384278646355}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 19f81d169bc8f8940bc517f43e4e96c3, type: 3}
-  m_Controller: {fileID: 9100000, guid: ecd40dbcb2ca8194c8ab7c898721bc88, type: 2}
+  m_Controller: {fileID: 9100000, guid: 5cc21b69dc3d36541812aa53218b1a73, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2290,11 +2290,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   groundDetectDistance: 3.72
-  walkSpeed: 5
-  runSpeed: 15
-  jumpForce: 10
-  lookSensitivity: 10
-  cameraRotationLimit: 30
   theCamera: {fileID: 961739752}
 --- !u!54 &6452229639304512748
 Rigidbody:
