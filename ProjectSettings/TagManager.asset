@@ -6,7 +6,6 @@ TagManager:
   tags:
   - Mirror
   - Ground
-  - MovableObject
   layers:
   - Default
   - TransparentFX
