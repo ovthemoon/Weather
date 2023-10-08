@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class CharacterMove : MonoBehaviour
 {
+//<<<<<<< yunsohee
 
     public float groundDetectDistance = 0.1f;
     
     private float walkSpeed = 5;
     private float jumpForce = 10;
+
 
     private float moveDirX;
     private float moveDirZ;
@@ -42,6 +44,11 @@ public class CharacterMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+
+    }
+    private void FixedUpdate()
+    {
         IsGround();
         TryJump();
 
@@ -49,7 +56,7 @@ public class CharacterMove : MonoBehaviour
         if (theCamera != null)
         {
             CameraRotation();
-            
+
         }
         CharacterRotation();
     }
@@ -84,8 +91,9 @@ public class CharacterMove : MonoBehaviour
     private void Move()
     {
 
-        moveDirX = Input.GetAxis("Horizontal");
-        moveDirZ = Input.GetAxis("Vertical");
+        moveDirX = Input.GetAxisRaw("Horizontal");
+        moveDirZ = Input.GetAxisRaw("Vertical");
+
 
         Vector3 moveHorizontal = transform.right * moveDirX;
         Vector3 moveVertical = transform.forward * moveDirZ;
