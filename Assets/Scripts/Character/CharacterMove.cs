@@ -8,7 +8,7 @@ public class CharacterMove : MonoBehaviour
     public float groundDetectDistance = 0.1f;
     
     private float walkSpeed = 5;
-    private float jumpForce = 5;
+    private float jumpForce = 10;
 
     private float moveDirX;
     private float moveDirZ;
