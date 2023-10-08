@@ -1,11 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.UI.Image;
 
 public class CloneManager : MonoBehaviour
 {
+    //attach this script to mirror which will make a clone in front of
+    //it would need a collider to detect a clone
     public Transform mirrorSurface;
-    public GameObject playerClonePrefab;
+    //public GameObject playerClonePrefab;
+    public RuntimeAnimatorController animatorClonePrefab;
 
     public string targetLayerName = "StencilLayer1";
     private GameObject playerClone;
@@ -35,7 +40,7 @@ public class CloneManager : MonoBehaviour
         Vector3 reflectedUp = Vector3.Reflect(other.transform.up, mirrorNormal);
         reflectedObj.transform.rotation = Quaternion.LookRotation(reflectedForward, reflectedUp);
     }
-    public void ChangeLayer(GameObject other)
+    public void ChangeLayer(Transform other)
     {
         int layerIndex = LayerMask.NameToLayer(targetLayerName);
 
@@ -44,32 +49,44 @@ public class CloneManager : MonoBehaviour
             Debug.LogWarning("Layer " + targetLayerName + " does not exist!");
             return;
         }
-
-        other.layer = layerIndex;
+        
+        ChangeLayerRecursively(other,layerIndex);
+    }
+    void ChangeLayerRecursively(Transform trans, int layer)
+    {
+        trans.gameObject.layer = layer;
+        
+        foreach (Transform child in trans)
+        {
+            ChangeLayerRecursively(child, layer);
+        }
     }
     private void OnTriggerEnter(Collider other)
     {
-        
-        //if (other.gameObject.CompareTag("Player"))
-        //{
-        //    playerClone = Instantiate(playerClonePrefab);
-        //    ChangeLayer(playerClone);
-        //}
-        //else
-        //{
-            if (!reflectedObjects.ContainsKey(other.gameObject))
-            {
-                GameObject cloneObject = Instantiate(other.gameObject);
-                DeleteChildrenWithComponent(cloneObject.transform);
-                ChangeLayer(cloneObject);
-                reflectedObjects[other.gameObject] = cloneObject;
-            }
-            
-        //}
+         if (!reflectedObjects.ContainsKey(other.gameObject)&& !other.gameObject.layer.Equals("stencilLayer1"))
+         {
+            GameObject cloneObject = Instantiate(other.gameObject);
+            DeleteChildrenWithComponent(cloneObject.transform);
+            ChangeLayer(cloneObject.transform);
+            reflectedObjects[other.gameObject] = cloneObject;
+         }
+
 
     }
     void DeleteChildrenWithComponent(Transform parentTransform)
     {
+        if (parentTransform.GetComponent<CharacterMove>())
+        {
+            Destroy(parentTransform.GetComponent<CharacterMove>());
+        }
+        if (parentTransform.GetComponent<AniController>())
+        {
+            Destroy(parentTransform.GetComponent<AniController>());
+        }
+        if (parentTransform.GetComponent<Collider>())
+        {
+            Destroy(parentTransform.GetComponent<Collider>());
+        }
         foreach (Transform child in parentTransform)
         {
             if (child.GetComponent<Camera>())
@@ -80,33 +97,45 @@ public class CloneManager : MonoBehaviour
             {
                 Destroy(child.gameObject.GetComponent<PickObject>());
             }
-            if (child.GetComponent<CharacterMove>())
+           
+            if (child.GetComponent<Collider>())
             {
-                Destroy(child.gameObject.GetComponent<CharacterMove>());
+                Destroy(child.gameObject.GetComponent<Collider>());
             }
         }
     }
+    private void SyncAnimationAndReflect(GameObject original, GameObject clone)
+    {
+        Animator originalAnimator = original.GetComponent<Animator>();
+        Animator cloneAnimator = clone.GetComponent<Animator>();
+
+        if (originalAnimator && cloneAnimator)
+        {
+            // 애니메이션 동기화
+            cloneAnimator.runtimeAnimatorController = originalAnimator.runtimeAnimatorController;
+            cloneAnimator.Play(originalAnimator.GetCurrentAnimatorStateInfo(0).fullPathHash, 0, 
+                originalAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime);
+
+            // Z축을 반전하여 반사 효과 적용
+            //Vector3 reflectedScale = clone.transform.localScale;
+            //reflectedScale.z *= -1;
+            //clone.transform.localScale = reflectedScale;
+        }
+    }
+
     private void OnTriggerStay(Collider other)
     {
-        //if (playerClone != null)
-        //{
-        //    ClonePosition(other, playerClone);
-        //    CloneRotation(other, playerClone);
-        //}
+        
         if(reflectedObjects.TryGetValue(other.gameObject,out GameObject reflectedObj))
         {
+            SyncAnimationAndReflect(other.gameObject, reflectedObj);
             ClonePosition(other,reflectedObj);
             CloneRotation(other, reflectedObj);
-            // 거울 표면으로부터 객체까지의 방향 벡터 계산
         }
     }
     
     private void OnTriggerExit(Collider other)
     {
-        //if (other.gameObject.CompareTag("Player"))
-        //{
-        //    Destroy(playerClone);
-        //}
         if (reflectedObjects.TryGetValue(other.gameObject, out GameObject reflectedObj))
         {
             Destroy(reflectedObj);
