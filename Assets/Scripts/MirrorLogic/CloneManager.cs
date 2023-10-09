@@ -9,8 +9,6 @@ public class CloneManager : MonoBehaviour
     //attach this script to mirror which will make a clone in front of
     //it would need a collider to detect a clone
     public Transform mirrorSurface;
-    //public GameObject playerClonePrefab;
-    public RuntimeAnimatorController animatorClonePrefab;
 
     public string targetLayerName = "StencilLayer1";
     private GameObject playerClone;
@@ -115,11 +113,41 @@ public class CloneManager : MonoBehaviour
             cloneAnimator.runtimeAnimatorController = originalAnimator.runtimeAnimatorController;
             cloneAnimator.Play(originalAnimator.GetCurrentAnimatorStateInfo(0).fullPathHash, 0, 
                 originalAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime);
-
-            // Z축을 반전하여 반사 효과 적용
-            //Vector3 reflectedScale = clone.transform.localScale;
-            //reflectedScale.z *= -1;
-            //clone.transform.localScale = reflectedScale;
+        }
+    }
+    private void SyncAnimatorParameters(GameObject original, GameObject clone)
+    {
+        Animator originalAnimator = original.GetComponent<Animator>();
+        Animator cloneAnimator = clone.GetComponent<Animator>();
+        if (originalAnimator && cloneAnimator)
+        {
+            foreach (AnimatorControllerParameter parameter in originalAnimator.parameters)
+            {
+                if (parameter.type == AnimatorControllerParameterType.Float)
+                {
+                    if (parameter.name.Equals("HorizontalSpeed"))
+                    {
+                        cloneAnimator.SetFloat(parameter.name, -originalAnimator.GetFloat(parameter.name)); continue;
+                    }
+                    cloneAnimator.SetFloat(parameter.name, originalAnimator.GetFloat(parameter.name));
+                }
+                else if (parameter.type == AnimatorControllerParameterType.Int)
+                {
+                    cloneAnimator.SetInteger(parameter.name, originalAnimator.GetInteger(parameter.name));
+                }
+                else if (parameter.type == AnimatorControllerParameterType.Bool)
+                {
+                    cloneAnimator.SetBool(parameter.name, originalAnimator.GetBool(parameter.name));
+                }
+                else if (parameter.type == AnimatorControllerParameterType.Trigger)
+                {
+                    // 트리거는 단순히 값을 확인하여 해당 트리거가 활성화되어 있으면 클론에도 설정합니다.
+                    if (originalAnimator.GetBool(parameter.name))
+                    {
+                        cloneAnimator.SetTrigger(parameter.name);
+                    }
+                }
+            }
         }
     }
 
@@ -128,7 +156,7 @@ public class CloneManager : MonoBehaviour
         
         if(reflectedObjects.TryGetValue(other.gameObject,out GameObject reflectedObj))
         {
-            SyncAnimationAndReflect(other.gameObject, reflectedObj);
+            SyncAnimatorParameters(other.gameObject, reflectedObj);
             ClonePosition(other,reflectedObj);
             CloneRotation(other, reflectedObj);
         }
