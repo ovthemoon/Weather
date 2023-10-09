@@ -1306,7 +1306,7 @@ Animator:
   m_GameObject: {fileID: 4386760641846597435}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 19f81d169bc8f8940bc517f43e4e96c3, type: 3}
-  m_Controller: {fileID: 9100000, guid: ecd40dbcb2ca8194c8ab7c898721bc88, type: 2}
+  m_Controller: {fileID: 9100000, guid: b13990ab65e3177468788cfa4dad52fa, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1369,10 +1369,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   groundDetectDistance: 3.72
-  walkSpeed: 5
-  jumpForce: 10
-  lookSensitivity: 5
-  cameraRotationLimit: 60
   theCamera: {fileID: 4734267322407240175}
 --- !u!136 &4157603355231792405
 CapsuleCollider:
