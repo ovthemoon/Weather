@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class PickObject : MonoBehaviour
 {
-
-    [SerializeField] private GameObject item;
-    [SerializeField] private GameObject tempParent;
-    [SerializeField] private Transform guide;
-
+    GameObject item;
+    public GameObject tempParent;
+    public Transform guide;
 
     private void Start()
     {

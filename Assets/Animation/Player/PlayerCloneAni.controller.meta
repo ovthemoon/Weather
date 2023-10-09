@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Animation/Player/PlayerCloneAni.controller.meta
 guid: 9b4e758415ec85f43bfba08ebba84949
+========
+guid: 550c747690a536d4aac3030b0d45c960
+>>>>>>>> Develop:Assets/Animation/Button/ButtonDown.anim.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 9100000
