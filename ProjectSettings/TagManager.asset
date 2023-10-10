@@ -7,6 +7,7 @@ TagManager:
   - Mirror
   - Ground
   - MovableObject
+  - SpawnPoint
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - Player
   - Mirror1
   - lightProps
-  - 
+  - Ground
   - 
   - 
   - 
