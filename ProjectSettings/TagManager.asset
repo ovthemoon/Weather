@@ -8,6 +8,8 @@ TagManager:
   - Ground
   - Portal
   - MirrorableWall
+  - MovableObject
+  - SpawnPoint
   layers:
   - Default
   - TransparentFX
@@ -23,6 +25,7 @@ TagManager:
   - Mirror1
   - lightProps
   - Portal
+  - Ground
   - 
   - 
   - 

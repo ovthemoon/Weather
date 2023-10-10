@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class CharacterMove : MonoBehaviour
 {
-//<<<<<<< yunsohee
+    //<<<<<<< yunsohee
 
+
+    
     public float groundDetectDistance = 0.1f;
     
     private float walkSpeed = 5;
@@ -17,6 +19,7 @@ public class CharacterMove : MonoBehaviour
 
     private bool isGround = true; //캐릭터가 땅에 있는지 확인
     private bool isMoving = false;
+    
 
     // 땅 착지 여부
     private CapsuleCollider capsuleCollider;
@@ -39,8 +42,9 @@ public class CharacterMove : MonoBehaviour
     {
         capsuleCollider = GetComponent<CapsuleCollider>();
         myRigid = GetComponent<Rigidbody>();
-        Cursor.lockState = CursorLockMode.Locked;
+        
     }
+
     private void FixedUpdate()
     {
         IsGround();
@@ -61,7 +65,7 @@ public class CharacterMove : MonoBehaviour
     // 지면 체크.
     private void IsGround()
     {
-        //isGround 작동 체크 부탁(raycast 거리값 조절을 위해 GroundDetectDistance(Inpector에서 조절가능)으로 변경하였음)
+
         isGround = Physics.Raycast(transform.position, Vector3.down, capsuleCollider.bounds.extents.y + groundDetectDistance);
         isGround = true;
     }
@@ -81,12 +85,14 @@ public class CharacterMove : MonoBehaviour
     private void Jump()
     {
         myRigid.velocity = transform.up * jumpForce;
+        
     }
     
 
 
     private void Move()
     {
+        
 
         moveDirX = Input.GetAxisRaw("Horizontal");
         moveDirZ = Input.GetAxisRaw("Vertical");
