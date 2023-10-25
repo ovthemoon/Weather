@@ -28,7 +28,7 @@ public class CharacterMove : MonoBehaviour
     public float lookSensitivity = 3;
 
     //카메라 한계
-    public float cameraRotationLimit = 10;
+    public float cameraRotationLimit = 60;
     public float currentCameraRotationX = 0;
     public bool canMove=true;
     //필요한 컴포넌트
@@ -65,7 +65,6 @@ public class CharacterMove : MonoBehaviour
     // 지면 체크.
     private void IsGround()
     {
-
         isGround = Physics.Raycast(transform.position, Vector3.down, capsuleCollider.bounds.extents.y + groundDetectDistance);
         isGround = true;
     }
