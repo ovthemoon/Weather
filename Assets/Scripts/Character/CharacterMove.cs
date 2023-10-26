@@ -27,7 +27,7 @@ public class CharacterMove : MonoBehaviour
     //카메라 한계
     public float cameraRotationLimit = 10;
     public float currentCameraRotationX = 0;
-
+    public bool canMove=true;
     //필요한 컴포넌트
     [SerializeField]
     private Camera theCamera;
@@ -44,15 +44,18 @@ public class CharacterMove : MonoBehaviour
     private void FixedUpdate()
     {
         IsGround();
-        TryJump();
-
-        Move();
-        if (theCamera != null)
+        if (canMove)
         {
-            CameraRotation();
+            TryJump();
 
-        }
-        CharacterRotation();
+            Move();
+            if (theCamera != null)
+            {
+                CameraRotation();
+
+            }
+            CharacterRotation();
+        } 
     }
     
     // 지면 체크.
