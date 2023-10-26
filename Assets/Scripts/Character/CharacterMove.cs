@@ -22,11 +22,11 @@ public class CharacterMove : MonoBehaviour
     private CapsuleCollider capsuleCollider;
 
     //민감도
-    private float lookSensitivity = 3;
+    public float lookSensitivity = 3;
 
     //카메라 한계
-    private float cameraRotationLimit = 10;
-    private float currentCameraRotationX = 0;
+    public float cameraRotationLimit = 10;
+    public float currentCameraRotationX = 0;
 
     //필요한 컴포넌트
     [SerializeField]
@@ -39,13 +39,7 @@ public class CharacterMove : MonoBehaviour
     {
         capsuleCollider = GetComponent<CapsuleCollider>();
         myRigid = GetComponent<Rigidbody>();
-    }
-    
-    // Update is called once per frame
-    void Update()
-    {
-        
-
+        Cursor.lockState = CursorLockMode.Locked;
     }
     private void FixedUpdate()
     {

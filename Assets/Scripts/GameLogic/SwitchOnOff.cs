@@ -15,7 +15,7 @@ public class SwitchOnOff : MonoBehaviour
     {
         for (int i = 0; i < boxes.Length; i++)
         {
-            if (boxes[0].isMoving)
+            if (boxes[i].isMoving)
                 return;
         }
         
