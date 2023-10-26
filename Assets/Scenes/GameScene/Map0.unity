@@ -3831,7 +3831,7 @@ PrefabInstance:
     - target: {fileID: 490347609429632720, guid: f4eb9755c652a1d4d821efc77fd36ecd,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.93
+      value: 5.67
       objectReference: {fileID: 0}
     - target: {fileID: 490347609429632720, guid: f4eb9755c652a1d4d821efc77fd36ecd,
         type: 3}
@@ -4158,6 +4158,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 2133579705603142775, guid: f4eb9755c652a1d4d821efc77fd36ecd,
+        type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: 0e4deb7626a6f5047a4b40735bdae8b3, type: 3}
     - target: {fileID: 2244085946209618658, guid: f4eb9755c652a1d4d821efc77fd36ecd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8208,6 +8213,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tempParent: {fileID: 585213731}
   guide: {fileID: 585213732}
+  maxDistance: 3
 --- !u!54 &748329442
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11976,6 +11982,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tempParent: {fileID: 0}
   guide: {fileID: 0}
+  maxDistance: 3
 --- !u!54 &1393171626
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12465,6 +12472,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tempParent: {fileID: 585213731}
   guide: {fileID: 585213732}
+  maxDistance: 3
 --- !u!54 &1462794809
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12595,7 +12603,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1473956433}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 19f81d169bc8f8940bc517f43e4e96c3, type: 3}
+  m_Avatar: {fileID: 0}
   m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
@@ -23127,6 +23135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tempParent: {fileID: 585213731}
   guide: {fileID: 585213732}
+  maxDistance: 3
 --- !u!1 &3431458956577654157
 GameObject:
   m_ObjectHideFlags: 0
@@ -24558,6 +24567,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tempParent: {fileID: 585213731}
   guide: {fileID: 585213732}
+  maxDistance: 3
 --- !u!4 &4209469328282130119
 Transform:
   m_ObjectHideFlags: 0
@@ -26823,6 +26833,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tempParent: {fileID: 585213731}
   guide: {fileID: 585213732}
+  maxDistance: 3
 --- !u!4 &5421997628024313268
 Transform:
   m_ObjectHideFlags: 0
@@ -30792,6 +30803,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tempParent: {fileID: 585213731}
   guide: {fileID: 585213732}
+  maxDistance: 3
 --- !u!4 &7403470935641507278
 Transform:
   m_ObjectHideFlags: 0
@@ -31188,6 +31200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tempParent: {fileID: 585213731}
   guide: {fileID: 585213732}
+  maxDistance: 3
 --- !u!33 &7529372615165271521
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -31514,6 +31527,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tempParent: {fileID: 585213731}
   guide: {fileID: 585213732}
+  maxDistance: 3
 --- !u!33 &7667087260062741127
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -32123,6 +32137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tempParent: {fileID: 585213731}
   guide: {fileID: 585213732}
+  maxDistance: 3
 --- !u!33 &7838607488037515201
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -33201,6 +33216,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tempParent: {fileID: 585213731}
   guide: {fileID: 585213732}
+  maxDistance: 3
 --- !u!23 &8273981305992001250
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -33450,6 +33466,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tempParent: {fileID: 585213731}
   guide: {fileID: 585213732}
+  maxDistance: 3
 --- !u!1 &8335952373785587304
 GameObject:
   m_ObjectHideFlags: 0
@@ -34611,6 +34628,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tempParent: {fileID: 585213731}
   guide: {fileID: 585213732}
+  maxDistance: 3
 --- !u!1 &8824200853700048359
 GameObject:
   m_ObjectHideFlags: 0
@@ -34841,6 +34859,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tempParent: {fileID: 585213731}
   guide: {fileID: 585213732}
+  maxDistance: 3
 --- !u!33 &8890547385198036741
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -35417,6 +35436,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tempParent: {fileID: 585213731}
   guide: {fileID: 585213732}
+  maxDistance: 3
 --- !u!33 &9172906962263736927
 MeshFilter:
   m_ObjectHideFlags: 0
