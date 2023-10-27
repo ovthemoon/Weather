@@ -16,7 +16,7 @@ public class FadeImage : MonoBehaviour
     void Start()
     {
         logoImage.gameObject.SetActive(true);
-        gameTitle.gameObject.SetActive(true);
+        gameTitle.gameObject.SetActive(true);   
         logoImage.DOFade(0, 0); // 시작 시 로고를 투명하게 설정
         gameTitle.DOFade(0, 0);
         StartCoroutine(LogoSequence());

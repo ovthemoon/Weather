@@ -24,6 +24,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _DiamondTexture:
+        m_Texture: {fileID: 2800000, guid: 81aacaf718b41fc409099f1aba70039e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -38,9 +42,16 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _Metalic: 1
+    - _Parallex_Amplitude: 81.4
     - _QueueControl: 0
     - _QueueOffset: 0
-    m_Colors: []
+    - _Smoothness: 1
+    - _Steps: 14.9
+    - _transparency: 1
+    m_Colors:
+    - _DiamondColor: {r: 0.3254717, g: 1, b: 0.9407098, a: 0}
+    - _EmissionColor: {r: 0, g: 1.8880867, b: 1.8404877, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &7978454248904653166
 MonoBehaviour:
