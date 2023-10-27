@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/GameScene/Map1_Werid.unity
     guid: fd02f3dfaed0949e283ac175188f8a02
   - enabled: 1
-    path: Assets/Scenes/GameScene/Map2_Nature.unity
+    path: Assets/Scenes/GameScene/Map2_Desert.unity
     guid: cbcee988b7f124fbca54f362b6ccd1bc
   - enabled: 1
     path: Assets/Scenes/GameScene/Map3_PlayGround.unity
