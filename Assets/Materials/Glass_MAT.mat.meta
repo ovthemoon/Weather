@@ -1,15 +1,8 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Materials/Glass_MAT.mat.meta
 guid: 8261352a86fab0747b33ca4b47deef10
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 2100000
-========
-guid: b2edcd4e81f9a4c958fb497a965ce7ce
-NativeFormatImporter:
-  externalObjects: {}
-  mainObjectFileID: 0
->>>>>>>> Develop:Assets/Animation/Player/PlayerAnimation 2.controller.meta
   userData: 
   assetBundleName: 
   assetBundleVariant: 
