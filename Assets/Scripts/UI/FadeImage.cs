@@ -12,6 +12,7 @@ public class FadeImage : MonoBehaviour
     public float stayDuration = 2f;
     public float fadeOutDuration = 1f;
     public PlayableDirector timelineDirector;
+   
 
     void Start()
     {
