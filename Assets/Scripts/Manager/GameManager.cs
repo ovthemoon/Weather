@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -9,15 +10,26 @@ public class GameManager : Singleton<GameManager>
     // Start is called before the first frame update
     void Start()
     {
-       
-        player.transform.position = spawnPoint.position;
+       if(spawnPoint != null)
+            player.transform.position = spawnPoint.position;
         //spawnPoint = GameObject.Find("SpawnPoint");
         
     }
-
-    // Update is called once per frame
-    void Update()
+    public void exitGame()
     {
-        
+        Application.Quit();
     }
+    public void moveScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+    }
+    public void setActiveFalse(GameObject obj)
+    {
+        obj.SetActive(false);
+    }
+    public void setActiveTrue(GameObject obj)
+    {
+        obj.SetActive(true);
+    }
+
 }
