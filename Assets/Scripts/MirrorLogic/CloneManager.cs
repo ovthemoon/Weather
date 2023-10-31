@@ -61,9 +61,15 @@ public class CloneManager : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-         if (!reflectedObjects.ContainsKey(other.gameObject)&& !other.gameObject.layer.Equals("stencilLayer1"))
+         if (!reflectedObjects.ContainsKey(other.gameObject)&& other.gameObject.layer != LayerMask.NameToLayer("StencilLayer1")&&!other.gameObject.CompareTag("CloneOfClone"))
          {
             GameObject cloneObject = Instantiate(other.gameObject);
+            if (!cloneObject.GetComponent<Animator>())
+            {
+                cloneObject.tag = "Clone";
+                cloneObject.AddComponent<CopyCloneObject>();
+            }
+            
             DeleteChildrenWithComponent(cloneObject.transform);
             ChangeLayer(cloneObject.transform);
             reflectedObjects[other.gameObject] = cloneObject;
@@ -81,10 +87,7 @@ public class CloneManager : MonoBehaviour
         {
             Destroy(parentTransform.GetComponent<AniController>());
         }
-        if (parentTransform.GetComponent<Collider>())
-        {
-            Destroy(parentTransform.GetComponent<Collider>());
-        }
+
         foreach (Transform child in parentTransform)
         {
             if (child.GetComponent<Camera>())
@@ -95,11 +98,7 @@ public class CloneManager : MonoBehaviour
             {
                 Destroy(child.gameObject.GetComponent<PickObject>());
             }
-           
-            if (child.GetComponent<Collider>())
-            {
-                Destroy(child.gameObject.GetComponent<Collider>());
-            }
+
         }
     }
     private void SyncAnimationAndReflect(GameObject original, GameObject clone)
@@ -169,5 +168,16 @@ public class CloneManager : MonoBehaviour
             Destroy(reflectedObj);
             reflectedObjects.Remove(other.gameObject);
         }
+    }
+    public void DeleteAllClones()
+    {
+        foreach (var clone in reflectedObjects.Values)
+        {
+            if (clone != null)
+            {
+                Destroy(clone);
+            }
+        }
+        reflectedObjects.Clear();
     }
 }
