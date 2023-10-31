@@ -8,15 +8,15 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 0
+    path: Assets/Scenes/TestScene/ShaderTest.unity
+    guid: 538064636a96ae44a834d081a13f50ad
   - enabled: 1
     path: Assets/Scenes/GameScene/Map0.unity
     guid: 9e7232251d336514b8b1df5ba5a4fa8c
   - enabled: 1
     path: Assets/Scenes/GameScene/Map1_Werid.unity
     guid: fd02f3dfaed0949e283ac175188f8a02
-  - enabled: 1
-    path: Assets/Scenes/GameScene/Map2_Desert.unity
-    guid: cbcee988b7f124fbca54f362b6ccd1bc
   - enabled: 1
     path: Assets/Scenes/GameScene/Map3_PlayGround.unity
     guid: bca5991cdf99d4195aad929874519bc0
