@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/MapAssets/Sci-Fi Styled Modular Pack/Models/Materials/nature_leaves.mat.meta
+guid: 9cb5030ecaa8abb44b8550614a8304ea
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+========
+guid: 5cc21b69dc3d36541812aa53218b1a73
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+>>>>>>>> Develop:Assets/Animation/Player/Player ani 1.controller.meta
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

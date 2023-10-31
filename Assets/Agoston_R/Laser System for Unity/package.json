@@ -1,0 +1,36 @@
+{
+  "name": "com.agostonr.laser-system",
+  "version": "1.1.0",
+  "displayName": "Laser System for Unity",
+  "description": "A complete laser system with logic, scripting API, shaders, textured models, tests and documentation.",
+  "unity": "2021.3",
+  "unityRelease": "15f1",
+  "documentationUrl": "https://github.com/agostonr/Laser-system",
+  "changelogUrl": "https://github.com/agostonr/Laser-system/blob/main/Changelog.md",
+  "dependencies": {
+    "com.unity.shadergraph": "14.0.8"
+ },
+  "repository": {
+    "url": "https://github.com/agostonr/Laser-system.git",
+    "type": "git",
+    "revision": "90437205f195f077e432f7d474e0ac1548c19cb7"
+  },
+ "keywords": [
+    "laser",
+    "lasers",
+    "puzzle",
+    "indie",
+    "script",
+    "toolkit",
+    "particle effects",
+    "shader",
+    "model",
+    "bundle",
+    "complete"
+  ],
+  "author": {
+    "name": "Agoston Romhanyi",
+    "email": "amsiamun.dev@gmail.com",
+    "url": "https://github.com/agostonr"
+  }
+}

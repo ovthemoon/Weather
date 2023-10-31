@@ -3,7 +3,16 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Mirror
+  - Ground
+  - Portal
+  - MirrorableWall
+  - MovableObject
+  - SpawnPoint
+  - CloneOfClone
+  - Clone
+  - HoldableObject
   layers:
   - Default
   - TransparentFX
@@ -16,12 +25,12 @@ TagManager:
   - MIrrorReflection
   - MirrorDimension
   - Player
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Mirror1
+  - lightProps
+  - Portal
+  - Ground
+  - pickableLayer
+  - Glass
   - 
   - 
   - 

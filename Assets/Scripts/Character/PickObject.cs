@@ -4,70 +4,53 @@ using UnityEngine;
 
 public class PickObject : MonoBehaviour
 {
-    [SerializeField] Transform holdArea;
-    private GameObject heldObj;
-    private Rigidbody heldObjRB;
+    
+    GameObject item;
+    public GameObject tempParent;
+    public Transform guide;
+    public float maxDistance = 3f;
 
-    [SerializeField] private float pickupRange = 5.0f;
-    [SerializeField] private float pickupForce = 150.0f;
 
-    private void Update()
+    private void Start()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            if(heldObj == null)
-            {
-                RaycastHit hit;
-                if(Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickupRange))
-                {
-                    PickupObject(hit.transform.gameObject);
-                }
-            }
-        }
-        if(Input.GetMouseButtonUp(0))
-        {
-            DropObject();
-        }
-
-        if (heldObj != null)
-        {
-            MoveObject();
-        }
+        item = this.gameObject;
+        item.GetComponent<Rigidbody>().useGravity = true;
     }
 
-    void MoveObject()
+
+    
+    private void OnMouseDown()
     {
-        if(Vector3.Distance(heldObj.transform.position, holdArea.position) > 0.1f)
+        //if(Vector3.Distance(alice.transform.position, item.transform.position) <= 10f)
+
+        float distanceToCharacter = Vector3.Distance(transform.position, guide.position);
+
+        if(distanceToCharacter <= maxDistance)
         {
-            Vector3 moveDirection = (holdArea.position - heldObj.transform.position);
-            heldObjRB.AddForce(moveDirection * pickupForce);
+            item.GetComponent<Rigidbody>().useGravity = false;
+            item.GetComponent<Rigidbody>().isKinematic = true;
+            item.transform.position = guide.transform.position;
+            item.transform.rotation = guide.transform.rotation;
+            item.transform.parent = tempParent.transform;
+        }   
+        
+    }
+
+    private void OnMouseUp()
+    {
+        float distanceToCharacter = Vector3.Distance(transform.position, guide.position);
+
+        if (distanceToCharacter <= maxDistance)
+        {
+
+            item.GetComponent<Rigidbody>().useGravity = true;
+            item.GetComponent<Rigidbody>().isKinematic = false;
+            item.transform.parent = null;
+            item.transform.position = guide.transform.position;
         }
     }
-
-    void PickupObject(GameObject pickObj)
-    {
-        if (pickObj.GetComponent<Rigidbody>())
-        {
-            heldObjRB = pickObj.GetComponent<Rigidbody>();
-            heldObjRB.useGravity = false;
-            heldObjRB.drag = 10;
-            heldObjRB.constraints = RigidbodyConstraints.FreezeRotation;
-
-            heldObjRB.transform.parent = holdArea;
-            heldObj = pickObj;
-        }
-    }
-
-    void DropObject()
-    {
-        heldObjRB.useGravity = true;
-        heldObjRB.drag = 1;
-        heldObjRB.constraints = RigidbodyConstraints.None;
-
-        heldObjRB.transform.parent = null;
-        heldObj = null;
+   
+    
 
 
-
-    }
 }
