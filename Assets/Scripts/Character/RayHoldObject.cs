@@ -47,6 +47,7 @@ public class RayHoldObject : MonoBehaviour
             pickedObject.transform.position = Vector3.Lerp(pickedObject.transform.position, targetPosition, Time.deltaTime * 10);
         }
 
+
         if (Input.GetMouseButtonUp(0)) // 마우스 왼쪽 버튼을 놓았을 때
         {
             DropObject();

@@ -4,23 +4,25 @@ using UnityEngine;
 
 public class StepLogic : MonoBehaviour
 {
-    public BreakableWindow targetWindow;
+    public GameObject targetWindow;
     public GameObject stencilMirror;
     public Steps[] step;
     [HideInInspector]
     public int cnt=1;
 
     private bool hasCompleted = false;
+    
     private void Update()
     {
         if (cnt == step.Length+1&&!hasCompleted)
         {
             hasCompleted = true;
             Debug.Log("Completion");
-            targetWindow.breakWindow();
+            targetWindow.SetActive(true);
             stencilMirror.SetActive(false);
         }
     }
+    
     public void ResetPuzzle()
     {
         cnt = 1;
