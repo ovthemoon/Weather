@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 4890085278179872738, guid: 1aa52cf8b227f94488f57bf6eed5da9e,
+  m_LightingSettings: {fileID: 4890085278179872738, guid: ed03a18cff897f845ae26b40abec4692,
     type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -209,11 +209,6 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 23572793966647476, guid: ab309b76a881b2746b02be57804bd071,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 9c063a125f65e0946a01d5aea5bf1097, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab309b76a881b2746b02be57804bd071, type: 3}
 --- !u!4 &272015800 stripped
@@ -396,8 +391,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.1
-  m_Range: 1
+  m_Intensity: 8
+  m_Range: 0.97
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -489,8 +484,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.4852941, g: 0.9574036, b: 1, a: 1}
-  m_Intensity: 0.1
-  m_Range: 1
+  m_Intensity: 8
+  m_Range: 0.97
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -582,8 +577,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.97099394, g: 0.83823526, b: 1, a: 1}
-  m_Intensity: 0.1
-  m_Range: 1
+  m_Intensity: 5
+  m_Range: 0.86
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -721,8 +716,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.8735294, b: 0.6838235, a: 1}
-  m_Intensity: 0.1
-  m_Range: 1
+  m_Intensity: 5
+  m_Range: 0.86
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -1071,7 +1066,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 87545c74bce9a6a4c9e399f7826d17b9, type: 2}
+  - {fileID: 2100000, guid: 508cf4a8188129143a54d28edd1efbca, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1216,8 +1211,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.94330627, g: 0.6838235, b: 1, a: 1}
-  m_Intensity: 0.1
-  m_Range: 1
+  m_Intensity: 5
+  m_Range: 0.86
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
