@@ -28,7 +28,7 @@ public class ControllableObject : MonoBehaviour
     private void Start()
     {
         onPosition = transform.position+ moveDirection * moveOffset.magnitude;
-        offPosition = transform.position - moveDirection * moveOffset.magnitude;
+        offPosition = transform.position;
         startRotation = transform.rotation;
         onRotation = Quaternion.Euler(rotationAngle) * startRotation;  // 켜진 상태의 회전
         offRotation = startRotation;  // 꺼진 상태의 회전

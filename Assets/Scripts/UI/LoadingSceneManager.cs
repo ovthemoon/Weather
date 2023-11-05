@@ -30,12 +30,12 @@ public class LoadingSceneManager : MonoBehaviour
     }
     */
 
-    public void LoadScene(int sceneId)
+    public void LoadScene(string sceneId)
     {
         StartCoroutine(LoadSceneAsync(sceneId));
     }
 
-    IEnumerator LoadSceneAsync(int sceneId)
+    IEnumerator LoadSceneAsync(string sceneId)
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneId);
 

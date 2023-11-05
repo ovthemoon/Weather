@@ -6,6 +6,7 @@ public class PressButton : MonoBehaviour
 {
     [SerializeField] private Animator animator;
     [SerializeField] private GameObject portal;
+    
 
     private void OnCollisionStay(Collision collision)
     {

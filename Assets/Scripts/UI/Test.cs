@@ -10,9 +10,9 @@ public class Test : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //SceneManager.LoadScene(1);
-        obj = GameObject.Find("LoadingSceneManager");
-        obj.GetComponent<LoadingSceneManager>().LoadScene(1);
+        ////SceneManager.LoadScene(1);
+        //obj = GameObject.Find("LoadingSceneManager");
+        //obj.GetComponent<LoadingSceneManager>().LoadScene();
     }
 
     // Update is called once per frame
