@@ -9,7 +9,7 @@ public class StepLogic : MonoBehaviour
     public Steps[] step;
     [HideInInspector]
     public int cnt=1;
-
+    public GameObject cube;
     private bool hasCompleted = false;
     
     private void Update()
@@ -20,6 +20,10 @@ public class StepLogic : MonoBehaviour
             Debug.Log("Completion");
             targetWindow.SetActive(true);
             stencilMirror.SetActive(false);
+            if (cube != null)
+            {
+                cube.SetActive(true);
+            }
         }
     }
     

@@ -19,14 +19,16 @@ public class RayHoldObject : MonoBehaviour
             RaycastHit hit;
 
             int layerMask = ~LayerMask.GetMask("Glass"); // "Glass" 레이어를 제외한 모든 레이어를 포함하는 레이어 마스크
-
+            
             if (Physics.Raycast(ray, out hit, distance, layerMask))
             {
+                Debug.Log(layerMask + "Touched");
                 //Debug.Log(hit.collider.gameObject.name);
                 foreach (string tag in pickableTags)
                 {
                     if (hit.collider.CompareTag(tag))
                     {
+                        Debug.Log("working");
                         PickObject(hit.collider.gameObject);
                         break; // 태그를 찾았으므로 반복문을 빠져나옵니다.
                     }

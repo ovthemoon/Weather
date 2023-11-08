@@ -163,7 +163,7 @@ Transform:
   m_GameObject: {fileID: 3100362857201419368}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: 0, z: -0.09}
   m_LocalScale: {x: 5.8180294, y: 5.8180304, z: 0.16468515}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -442,7 +442,7 @@ Transform:
   m_GameObject: {fileID: 5984260681446684459}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.16, y: -0.14, z: -0.04}
+  m_LocalPosition: {x: 0.16, y: -0.14, z: -0.06}
   m_LocalScale: {x: 6.161252, y: 6.0239887, z: 0.170515}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -531,7 +531,7 @@ GameObject:
   - component: {fileID: 7230794325095595550}
   - component: {fileID: 9159498474774841568}
   - component: {fileID: 5646921864042015007}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Glass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -547,7 +547,7 @@ Transform:
   m_GameObject: {fileID: 8148580386999219126}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.08, y: -0.14, z: 0}
+  m_LocalPosition: {x: 0.08, y: -0.14, z: -0.05}
   m_LocalScale: {x: 6.2522974, y: 6.0239887, z: 0.17051502}
   m_ConstrainProportionsScale: 0
   m_Children: []
