@@ -11,6 +11,7 @@ namespace LaserAssetPackage.Scripts.Laser.Scripting
     {
         private IQueryableLaserTarget _mySelectedTarget;
         
+        /*
         private void Start()
         {
             SubscribeToSomeRandomEvents();
@@ -22,6 +23,7 @@ namespace LaserAssetPackage.Scripts.Laser.Scripting
             _mySelectedTarget = FindLaserActorByRootName<IQueryableLaserTarget>("nonblocking_receiver");
             _mySelectedTarget.OnNewEmitterReceived += Method_To_Run_When_New_Emitter_Hits_My_Target;
         }
+        */
 
         private void Method_To_Run_When_New_Emitter_Hits_My_Target(IQueryableLaserReceiver sender, LaserHit laserHit)
         {
