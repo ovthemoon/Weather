@@ -13,6 +13,8 @@ TagManager:
   - CloneOfClone
   - Clone
   - HoldableObject
+  - ActiveButton1
+  - Pad
   layers:
   - Default
   - TransparentFX

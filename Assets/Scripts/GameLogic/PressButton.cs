@@ -8,12 +8,13 @@ public class PressButton : MonoBehaviour
     [SerializeField] private GameObject portal;
     
 
+   
     private void OnCollisionStay(Collision collision)
     {
         animator.SetBool("Down", true);
         Renderer render = GetComponent<Renderer>();
         render.material.color = Color.green;
-        Debug.Log("¹öÆ° ´­¸²");
+        Debug.Log("ï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½");
 
         portal.GetComponent<Collider>().isTrigger = true;
         
@@ -24,7 +25,7 @@ public class PressButton : MonoBehaviour
         animator.SetBool("Down", false);
         Renderer render = GetComponent<Renderer>();
         render.material.color = Color.red;
-        Debug.Log("¹öÆ° ¾È´­¸²");
+        Debug.Log("ï¿½ï¿½Æ° ï¿½È´ï¿½ï¿½ï¿½");
 
         portal.GetComponent<Collider>().isTrigger = false;
     }
