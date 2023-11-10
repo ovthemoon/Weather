@@ -15,6 +15,7 @@ TagManager:
   - HoldableObject
   - ActiveButton1
   - Pad
+  - Sea
   layers:
   - Default
   - TransparentFX
