@@ -14,7 +14,7 @@ public class MirrorAnimationPlayer : MonoBehaviour
     public Image image; // 조정하려는 메터리얼
     public float duration = 2f; // 트위닝에 걸리는 시간
     public float targetAlphaClipValue = 0f; // 목표 알파 클리핑 값
-    
+    public float targetValue = .3f;
     Material material;
     private void Start()
     {
@@ -25,7 +25,7 @@ public class MirrorAnimationPlayer : MonoBehaviour
     private void OnMouseDown()
     {
         cloneManager.DeleteAllClones();
-        manager.PlayTimeline();
+        manager.PlayTimeline(targetValue);
         manager.playableDirector.stopped += OnTimelineStopped;
     }
     void OnTimelineStopped(PlayableDirector pd)

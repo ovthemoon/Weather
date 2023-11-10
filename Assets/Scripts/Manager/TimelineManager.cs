@@ -27,13 +27,13 @@ public class TimelineManager : MonoBehaviour
             vignette.intensity.Override(currentValue);
         }
     }
-    public void PlayTimeline()
+    public void PlayTimeline(float targetValue)
     {
         player.canMove = false;
         playableDirector.Play();
-        TweenVignetteIntensity();
+        TweenVignetteIntensity(targetValue);
     }
-    private void TweenVignetteIntensity()
+    private void TweenVignetteIntensity(float targetValue)
     {
         DOTween.To(() => vignette.intensity.value, x => vignette.intensity.value = x, targetValue, changeDuration);
     }

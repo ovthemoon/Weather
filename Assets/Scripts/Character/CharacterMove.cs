@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class CharacterMove : MonoBehaviour
 {
@@ -33,7 +34,7 @@ public class CharacterMove : MonoBehaviour
     public bool canMove=true;
     //필요한 컴포넌트
     [SerializeField]
-    private Camera theCamera;
+    private CinemachineVirtualCamera theCamera;
 
     private Rigidbody myRigid;
    

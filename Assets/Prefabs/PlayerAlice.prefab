@@ -74,7 +74,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6046621073163370293}
   - component: {fileID: 2989948868243780456}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: cloth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -844,7 +844,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5100503088541667646}
   - component: {fileID: 4062300709924042820}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1049,7 +1049,7 @@ GameObject:
   m_Component:
   - component: {fileID: 768894184124044778}
   - component: {fileID: 6956696240949381270}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ' hair'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1926,7 +1926,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 130039
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -2223,7 +2223,7 @@ GameObject:
   m_Component:
   - component: {fileID: 442740070022120736}
   - component: {fileID: 4995785112094117958}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cylinder001
   m_TagString: Untagged
   m_Icon: {fileID: 0}

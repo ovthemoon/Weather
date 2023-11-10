@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RayHoldObject : MonoBehaviour
 {
     public float distance = 2.0f;
     public string[] pickableTags = { "CloneOfClone","HoldableObject" };
-
+    public Image cursorNormal;
+    public Image cursorGrab;
     private GameObject pickedObject;
     private Rigidbody pickedObjectRb;
 
@@ -55,11 +57,16 @@ public class RayHoldObject : MonoBehaviour
             DropObject();
         }
     }
-    
+    private void cursorChange(bool isGrab)
+    {
+        cursorNormal.gameObject.SetActive(!isGrab);
+        cursorGrab.gameObject.SetActive(isGrab);
+    }
     private void PickObject(GameObject obj)
     {
         pickedObject = obj;
         pickedObjectRb = obj.GetComponent<Rigidbody>();
+        cursorChange(true);
         if (pickedObjectRb != null)
         {
             pickedObjectRb.isKinematic = true;
@@ -74,6 +81,7 @@ public class RayHoldObject : MonoBehaviour
             pickedObjectRb.velocity = Vector3.zero;
             pickedObjectRb.angularVelocity = Vector3.zero;
         }
+        cursorChange(false);
         pickedObject = null;
         pickedObjectRb = null;
     }

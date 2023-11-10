@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 using static UnityEngine.UI.Image;
+using Cinemachine;
 
 public class CloneManager : MonoBehaviour
 {
@@ -108,7 +109,7 @@ public class CloneManager : MonoBehaviour
 
         foreach (Transform child in parentTransform)
         {
-            if (child.GetComponent<Camera>())
+            if (child.GetComponent<CinemachineVirtualCamera>())
             {
                 Destroy(child.gameObject);
             }
