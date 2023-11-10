@@ -1,50 +1,54 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 public class LoadingSceneManager : MonoBehaviour
-{ 
+{
+    public static string nextScene;
+    public CanvasGroup panel;
+    [SerializeField] Image progressBar;
 
-    
-    public GameObject LoadingScreen;
-    public Slider LoadingBarFill;
-
-    private float time;
-
-    /*
-    public static LoadingSceneManager instance;
-
-    private void Awake()
+    private void Start()
     {
-        if(instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
-    */
-
-    public void LoadScene(string sceneId)
-    {
-        StartCoroutine(LoadSceneAsync(sceneId));
+        StartCoroutine(LoadScene());
     }
 
-    IEnumerator LoadSceneAsync(string sceneId)
+    public static void LoadScene(string sceneName)
     {
-        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneId);
+        nextScene = sceneName;
+        SceneManager.LoadScene("LoadingScene");
+    }
 
-        LoadingScreen.SetActive(true);
-
-        while (!operation.isDone)
+    IEnumerator LoadScene()
+    {
+        panel.DOFade(1, 1.0f);
+        yield return null;
+        AsyncOperation op = SceneManager.LoadSceneAsync(nextScene);
+        op.allowSceneActivation = false;
+        float timer = 0.0f;
+        while (!op.isDone)
         {
-            LoadingBarFill.value = operation.progress;
             yield return null;
+            timer += Time.deltaTime;
+            if (op.progress < 0.9f)
+            {
+                progressBar.fillAmount = Mathf.Lerp(progressBar.fillAmount, op.progress, timer);
+                if (progressBar.fillAmount >= op.progress)
+                {
+                    timer = 0f;
+                }
+            }
+            else
+            {
+                progressBar.fillAmount = Mathf.Lerp(progressBar.fillAmount, 1f, timer);
+                if (progressBar.fillAmount == 1.0f)
+                {
+                    op.allowSceneActivation = true;
+                    yield break;
+                }
+            }
         }
     }
     

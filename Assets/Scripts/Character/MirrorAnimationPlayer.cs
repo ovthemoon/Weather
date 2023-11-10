@@ -39,7 +39,7 @@ public class MirrorAnimationPlayer : MonoBehaviour
     }
     void LoadNextScene()
     {
-        SceneManager.LoadScene(sceneName);
+        LoadingSceneManager.LoadScene(sceneName);
     }
     
 }

@@ -11,7 +11,7 @@ public class CharacterMove : MonoBehaviour
     
     public float groundDetectDistance = 0.1f;
     
-    private float walkSpeed = 15;
+    public float walkSpeed = 5;
     private float jumpForce = 10;
 
 

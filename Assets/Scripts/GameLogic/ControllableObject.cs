@@ -29,7 +29,7 @@ public class ControllableObject : MonoBehaviour
         Vector3 localMoveOffset = localMoveDirection * moveOffset.magnitude;
 
         onPosition = transform.position + localMoveOffset;
-        offPosition = transform.position - localMoveOffset;
+        offPosition = transform.position;
 
         startRotation = transform.rotation;
         onRotation = Quaternion.Euler(rotationAngle) * startRotation;
