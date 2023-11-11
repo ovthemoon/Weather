@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.Rendering;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
@@ -14,11 +15,27 @@ public class NewBehaviourScript : MonoBehaviour
 
     private void Start()
     {
-        animator = GetComponent<Animator>();
-
-        
+        animator = GetComponent<Animator>();    
 
     }
+
+    /*
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0)) // 마우스 왼쪽 버튼을 클릭했을 때
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+   
+            if (Physics.Raycast(ray, out hit)
+            {
+                
+            }
+
+        }
+    }
+    */
+    
 
     private void OnMouseDown(){
         Debug.Log(isOn);

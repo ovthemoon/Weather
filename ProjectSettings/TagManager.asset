@@ -16,6 +16,7 @@ TagManager:
   - ActiveButton1
   - Pad
   - Sea
+  - MagicAlice
   layers:
   - Default
   - TransparentFX
