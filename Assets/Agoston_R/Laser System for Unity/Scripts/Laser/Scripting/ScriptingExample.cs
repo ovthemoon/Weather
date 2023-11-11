@@ -1,17 +1,22 @@
 ﻿using LaserAssetPackage.Scripts.Laser.Dto;
 using LaserAssetPackage.Scripts.Laser.Logic.Query;
+using UnityEngine;
 
 namespace LaserAssetPackage.Scripts.Laser.Scripting
 {
+    
+
     /// <summary>
     /// Example to show that by extending the <see cref="LaserActorAware"/> class all the queries and events inside it are made available.
     /// To see the full list of available queries, see <see cref="LaserActorAware"/>. 
     /// </summary>
     public class ScriptingExample : LaserActorAware
     {
-        private IQueryableLaserTarget _mySelectedTarget;
-        
-        /*
+
+        public bool iscomplete = false;
+        public IQueryableLaserTarget _mySelectedTarget;
+        public GameObject button;
+        public GameObject magic;
         private void Start()
         {
             SubscribeToSomeRandomEvents();
@@ -23,11 +28,18 @@ namespace LaserAssetPackage.Scripts.Laser.Scripting
             _mySelectedTarget = FindLaserActorByRootName<IQueryableLaserTarget>("nonblocking_receiver");
             _mySelectedTarget.OnNewEmitterReceived += Method_To_Run_When_New_Emitter_Hits_My_Target;
         }
-        */
+        
 
         private void Method_To_Run_When_New_Emitter_Hits_My_Target(IQueryableLaserReceiver sender, LaserHit laserHit)
         {
-            UnityEngine.Debug.Log($"My favourite target, {_mySelectedTarget.name} was hit by an emitter: {laserHit.Emitter.name}");
+            UnityEngine.Debug.Log("레이저");
+
+            button.SetActive(true);
+            magic.SetActive(true);
+
+            iscomplete = true;
+
+
         }
 
         private void SubscribeToSomeRandomEvents()
