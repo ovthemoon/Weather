@@ -19,7 +19,7 @@ public class MaterialController : MonoBehaviour
         if (_renderer != null) // If the renderer is found
         {
             _material = _renderer.sharedMaterial; // Get the material from the renderer
-            _material.SetFloat("_SplitValue", 0); // Initialize the _SplitValue
+            _material.SetFloat("_SplitValue", -0.1f); // Initialize the _SplitValue
         }
         else
         {
@@ -29,6 +29,7 @@ public class MaterialController : MonoBehaviour
 
     public void StartFadeTo()
     {
+        Debug.Log("It's working");
         float to = 1; // Define the target value for _SplitValue
         // Start the fade
         FadeSplitValue(_material.GetFloat("_SplitValue"), to);
