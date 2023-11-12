@@ -53,7 +53,7 @@ public class RayHoldObject : MonoBehaviour
             }
             
         }
-        if (Physics.Raycast(ray, out hit, pickupAbleDistance, layerMask))
+        if (Physics.Raycast(ray, out hit, pickupAbleDistance))
         {
             if (hit.collider.GetComponent<UIControllerScript>())
             {
@@ -112,11 +112,14 @@ public class RayHoldObject : MonoBehaviour
         if (pickedObjectRb != null)
         {
             pickedObjectRb.isKinematic = false;
+            pickedObjectRb.useGravity = true;
             pickedObjectRb.velocity = Vector3.zero;
             pickedObjectRb.angularVelocity = Vector3.zero;
         }
         pickedObject = null;
         pickedObjectRb = null;
+
+
     }
    
 }

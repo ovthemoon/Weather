@@ -27,6 +27,7 @@ public class MaterialController : MonoBehaviour
         }
     }
 
+    
     public void StartFadeTo()
     {
         Debug.Log("It's working");
@@ -34,6 +35,7 @@ public class MaterialController : MonoBehaviour
         // Start the fade
         FadeSplitValue(_material.GetFloat("_SplitValue"), to);
     }
+    
 
     public void FadeSplitValue(float from, float to)
     {
