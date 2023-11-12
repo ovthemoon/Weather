@@ -25,7 +25,9 @@ namespace LaserAssetPackage.Scripts.Laser.Scripting
 
         private void FindMyTargetAndSubscribeToIt()
         {
-            _mySelectedTarget = FindLaserActorByRootName<IQueryableLaserTarget>("nonblocking_receiver");
+            _mySelectedTarget = FindLaserActorByRootName<IQueryableLaserTarget>("nonblocking_receiver1");
+            _mySelectedTarget = FindLaserActorByRootName<IQueryableLaserTarget>("nonblocking_receiver2");
+            _mySelectedTarget = FindLaserActorByRootName<IQueryableLaserTarget>("nonblocking_receiver3");
             _mySelectedTarget.OnNewEmitterReceived += Method_To_Run_When_New_Emitter_Hits_My_Target;
         }
         
@@ -33,9 +35,6 @@ namespace LaserAssetPackage.Scripts.Laser.Scripting
         private void Method_To_Run_When_New_Emitter_Hits_My_Target(IQueryableLaserReceiver sender, LaserHit laserHit)
         {
             UnityEngine.Debug.Log("레이저");
-
-            button.SetActive(true);
-            magic.SetActive(true);
 
             iscomplete = true;
 

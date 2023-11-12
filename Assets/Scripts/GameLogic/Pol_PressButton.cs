@@ -33,7 +33,7 @@ public class Pol_PressButton : MonoBehaviour
 
         Vector3 a = door.transform.position;
         Vector3 b = target.position;
-        door.transform.position = Vector3.Lerp(b, a, 0.5f);
+        door.transform.position = Vector3.Lerp(b, a, 0.1f);
 
 
     }
