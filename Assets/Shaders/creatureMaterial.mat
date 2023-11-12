@@ -72,7 +72,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Smoothness: 0.97
-    - _SplitValue: -0.1
+    - _SplitValue: 1
     m_Colors:
     - _EmissionColor: {r: 2.6272619, g: 2.6272619, b: 3.6886055, a: 0.4196078}
     - _Glow_Color: {r: 12.844469, g: 1.999375, b: 12.080826, a: 1}
