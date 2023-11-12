@@ -53,7 +53,7 @@ public class RayHoldObject : MonoBehaviour
             }
             
         }
-        if (Physics.Raycast(ray, out hit, pickupAbleDistance, layerMask))
+        if (Physics.Raycast(ray, out hit, pickupAbleDistance))
         {
             if (hit.collider.GetComponent<UIControllerScript>())
             {

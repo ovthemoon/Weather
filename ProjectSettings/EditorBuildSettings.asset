@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameScene/Map2_Pole.unity
     guid: 4d7ce892fac654538964a6a58d556836
+  - enabled: 1
+    path: Assets/Scenes/GameScene/Map3_PlayGround.unity
+    guid: bca5991cdf99d4195aad929874519bc0
   m_configObjects: {}

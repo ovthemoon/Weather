@@ -16,9 +16,11 @@ public class UIControllerScript : MonoBehaviour
     private bool isTalking = false;
     private bool isTyping = false;
     private RadioOnOff radio;
+    private PlaygroundControl playgroundControl;
     private void Start()
     {
         radio=GetComponent<RadioOnOff>();
+        playgroundControl=GetComponent<PlaygroundControl>();
     }
     private void Update()
     {
@@ -97,5 +99,9 @@ public class UIControllerScript : MonoBehaviour
         index = 0; // 인덱스를 다시 -1로 초기화
         isTalking = false;
         player.canMove = true;
+        if (playgroundControl != null)
+        {
+            playgroundControl.enabled = true;
+        }
     }
 }
