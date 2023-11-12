@@ -37,10 +37,12 @@ public class CinemachineController : MonoBehaviour
         button.SetActive(true);
         magic.SetActive(true);
 
+        /*
         for(int i = 0; i < materialController.Length; i++)
         {
             materialController[i].StartFadeTo();
         }
+        */
         
 
         yield return new WaitForSeconds(2f);
