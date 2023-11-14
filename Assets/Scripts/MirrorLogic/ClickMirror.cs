@@ -23,7 +23,8 @@ public class ClickMirror : MonoBehaviour
             {
                 if (hit.transform.gameObject.tag == "Mirror")
                 {
-                    LoadingSceneManager.LoadScene("Map0");
+                   LoadingSceneManager.LoadScene("TitleScene");
+
                 }
 
             }
