@@ -6208,10 +6208,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 569074916716871029, guid: 4b2d7bed19cc112429a2f32f2af4c39d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2289274917110138120, guid: 4b2d7bed19cc112429a2f32f2af4c39d,
         type: 3}
       propertyPath: m_Name
       value: UIPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 8427499318869756122, guid: 4b2d7bed19cc112429a2f32f2af4c39d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
