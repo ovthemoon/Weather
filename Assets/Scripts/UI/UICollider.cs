@@ -99,7 +99,10 @@ public class UICollider : MonoBehaviour
             talkBubble.GetComponent<AudioSource>().Play();
             yield return new WaitForSeconds(0.05f); // �� ���� ������ ����
         }
+        yield return new WaitForSeconds(2f); // 텍스트가 모두 표시된 후 2초간 대기
         isTyping = false;
+        arrow.gameObject.SetActive(true); // 다음 문장으로 넘어갈 수 있음을 표시하는 화살표를 표시
+
     }
 
     void CompleteSentence()
