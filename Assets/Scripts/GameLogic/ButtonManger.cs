@@ -4,16 +4,19 @@ using UnityEngine;
 public class ButtonManager : MonoBehaviour
 {
     public List<PressButtonTest> buttons;
-    public GameObject portal;
+    public List<GameObject> portals; // 여러 포탈을 관리하기 위한 리스트
     [SerializeField] private Material activePortalMaterial; // 포탈 활성화 시 사용할 머티리얼
 
-    private Renderer portalRenderer;
-    private Material originalPortalMaterial; // 원래 포탈 머티리얼
+    private Dictionary<GameObject, Material> originalPortalMaterials = new Dictionary<GameObject, Material>(); // 각 포탈의 원래 머티리얼을 저장
 
     private void Start()
     {
-        portalRenderer = portal.GetComponent<Renderer>();
-        originalPortalMaterial = portalRenderer.material; // 원래의 포탈 머티리얼 저장
+        // 각 포탈의 렌더러와 원래 머티리얼을 저장합니다.
+        foreach (GameObject portal in portals)
+        {
+            Renderer portalRenderer = portal.GetComponent<Renderer>();
+            originalPortalMaterials[portal] = portalRenderer.material;
+        }
     }
 
     public void CheckButtons()
@@ -22,18 +25,22 @@ public class ButtonManager : MonoBehaviour
         {
             if (!button.IsPressed)
             {
-                ActivatePortal(false);
+                ActivatePortals(false);
                 return;
             }
         }
 
         // 모든 버튼이 눌렸을 경우
-        ActivatePortal(true);
+        ActivatePortals(true);
     }
 
-    private void ActivatePortal(bool activate)
+    private void ActivatePortals(bool activate)
     {
-        portal.GetComponent<Collider>().isTrigger = activate;
-        portalRenderer.material = activate ? activePortalMaterial : originalPortalMaterial;
+        foreach (GameObject portal in portals)
+        {
+            portal.GetComponent<Collider>().isTrigger = activate;
+            Renderer portalRenderer = portal.GetComponent<Renderer>();
+            portalRenderer.material = activate ? activePortalMaterial : originalPortalMaterials[portal];
+        }
     }
 }
