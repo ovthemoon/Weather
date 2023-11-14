@@ -8,6 +8,7 @@ using UnityEngine.Playables;
 public class checkBox : MonoBehaviour
 {
     public TimelineManager manager;
+    public string mapName;
     Camera mainCamera; // 기존 플레이어 카메라
     public CinemachineVirtualCamera animationCamera;
     public float duration = 2f;
@@ -28,7 +29,7 @@ public class checkBox : MonoBehaviour
     }
     void OnTimelineStopped(PlayableDirector pd)
     {
-        LoadingSceneManager.LoadScene("Map2_Desert");
+        LoadingSceneManager.LoadScene("Map3_PlayGround");
 
     }
 

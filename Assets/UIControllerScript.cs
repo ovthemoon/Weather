@@ -11,16 +11,22 @@ public class UIControllerScript : MonoBehaviour
     public string[] textArr;
     public CharacterMove player;
     public Image arrow;
-
+    
     private int index = 0;
     private bool isTalking = false;
     private bool isTyping = false;
     private RadioOnOff radio;
     private PlaygroundControl playgroundControl;
+    private Animator animator;
     private void Start()
     {
         radio=GetComponent<RadioOnOff>();
         playgroundControl=GetComponent<PlaygroundControl>();
+        animator=GetComponent<Animator>();
+        if (gameObject.name.Equals("TalkManager")&&!isTalking&&!talkBubble.gameObject.activeInHierarchy )
+        {
+            StartTalk();
+        }
     }
     private void Update()
     {
@@ -55,6 +61,10 @@ public class UIControllerScript : MonoBehaviour
         isTalking = true;
         talkBubble.gameObject.SetActive(true);
         player.canMove = false;
+        if (animator != null)
+        {
+            animator.SetBool("IsTalking",isTalking);
+        }
         NextSentence();
     }
 
@@ -69,6 +79,7 @@ public class UIControllerScript : MonoBehaviour
         else
         {
             EndTalk();
+            arrow.gameObject.SetActive(true);
         }
     }
 
@@ -102,6 +113,10 @@ public class UIControllerScript : MonoBehaviour
         if (playgroundControl != null)
         {
             playgroundControl.enabled = true;
+        }
+        if (animator != null)
+        {
+            animator.SetBool("IsTalking", isTalking);
         }
     }
 }

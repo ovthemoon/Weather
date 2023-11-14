@@ -10,6 +10,10 @@ public class SceneChange : MonoBehaviour
         gameObject.SetActive(!GameManager.map2_DesertComplete);
         gameObject.SetActive(!GameManager.map2_PoleComplete);
     }
+    private void OnMouseDown()
+    {
+        LoadingSceneManager.LoadScene(sceneName);
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -17,4 +21,5 @@ public class SceneChange : MonoBehaviour
             LoadingSceneManager.LoadScene(sceneName);
         }
     }
+
 }

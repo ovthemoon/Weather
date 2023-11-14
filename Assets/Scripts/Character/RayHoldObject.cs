@@ -15,6 +15,7 @@ public class RayHoldObject : MonoBehaviour
     public Image cursorNormal;
     public Image cursorGrab;
     public Image cursorInfo;
+    public AudioSource cursorAudio;
     private GameObject pickedObject;
     private Rigidbody pickedObjectRb;
 
@@ -105,6 +106,7 @@ public class RayHoldObject : MonoBehaviour
         {
             pickedObjectRb.isKinematic = true;
         }
+        cursorAudio.Play();
     }
 
     private void DropObject()

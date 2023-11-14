@@ -12,6 +12,7 @@ public class ControllableObject : MonoBehaviour
 
     // 이동 방향을 인스펙터에서 설정할 수 있습니다.
     public Vector3 moveDirection = Vector3.up; // 로컬 축을 기준으로 합니다.
+    AudioSource audioWhenMove;
 
     private Vector3 onPosition;
     private Vector3 offPosition;
@@ -21,6 +22,7 @@ public class ControllableObject : MonoBehaviour
     private Quaternion startRotation;
     private Quaternion onRotation;
     private Quaternion offRotation;
+    
 
     private void Start()
     {
@@ -34,6 +36,7 @@ public class ControllableObject : MonoBehaviour
         startRotation = transform.rotation;
         onRotation = Quaternion.Euler(rotationAngle) * startRotation;
         offRotation = startRotation;
+        audioWhenMove=GetComponent<AudioSource>();
     }
 
     public void ToggleState()
@@ -51,6 +54,10 @@ public class ControllableObject : MonoBehaviour
 
     IEnumerator MoveToTarget(Vector3 targetPosition, Quaternion targetRotation)
     {
+        if (audioWhenMove!=null&&!audioWhenMove.isPlaying)
+        {
+            audioWhenMove.Play();
+        }
         isMoving = true;
         Vector3 startPosition = transform.position;
         Quaternion startRotationCurrent = transform.rotation;
@@ -73,5 +80,9 @@ public class ControllableObject : MonoBehaviour
         transform.position = targetPosition;
         transform.rotation = targetRotation;
         isMoving = false;
+        if (audioWhenMove != null)
+        {
+            audioWhenMove.Stop();
+        }
     }
 }

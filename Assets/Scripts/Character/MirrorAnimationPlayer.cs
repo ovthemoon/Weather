@@ -16,10 +16,13 @@ public class MirrorAnimationPlayer : MonoBehaviour
     public float targetAlphaClipValue = 0f; // 목표 알파 클리핑 값
     public float targetValue = .3f;
     Material material;
+
+    private AudioSource mirrorBreakSound;
     private void Start()
     {
         material = image.material;
         material.color = new Color(material.color.r, material.color.g, material.color.b, 0);
+        mirrorBreakSound = GetComponent<AudioSource>();
     }
 
     private void OnMouseDown()
@@ -33,6 +36,7 @@ public class MirrorAnimationPlayer : MonoBehaviour
         image.gameObject.SetActive(true);
         Camera.main.DOShakePosition(duration, 2, 10, 90, true);
         material.color = new Color(material.color.r, material.color.g, material.color.b, 1);
+        mirrorBreakSound.Play();
         DOTween.To(() => material.GetFloat("_Cutoff"), x => material.SetFloat("_Cutoff", x), targetAlphaClipValue, duration)
               .OnComplete(() => {DOVirtual.DelayedCall(2f, LoadNextScene);});
 

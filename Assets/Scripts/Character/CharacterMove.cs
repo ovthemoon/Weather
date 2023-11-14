@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
-
+using UnityEngine.SceneManagement;
 public class CharacterMove : MonoBehaviour
 {
     //<<<<<<< yunsohee
@@ -12,6 +12,8 @@ public class CharacterMove : MonoBehaviour
     public float groundDetectDistance = 0.1f;
     
     public float walkSpeed = 5;
+    public AudioSource[] walkSound;
+
     private float jumpForce = 10;
 
 
@@ -37,13 +39,26 @@ public class CharacterMove : MonoBehaviour
     private CinemachineVirtualCamera theCamera;
 
     private Rigidbody myRigid;
-   
+    private AudioSource currentWalkSound;
+
     // Start is called before the first frame update
     void Start()
     {
         capsuleCollider = GetComponent<CapsuleCollider>();
         myRigid = GetComponent<Rigidbody>();
-        
+        currentWalkSound= GetComponent<AudioSource>();
+        if (SceneManager.GetActiveScene().name == "Map2_Desert")
+        {
+            currentWalkSound = walkSound[1];
+        }
+        else if (SceneManager.GetActiveScene().name == "Map2_Pole")
+        {
+            currentWalkSound = walkSound[2];
+        }
+        else
+        {
+            currentWalkSound = walkSound[0];
+        }
     }
 
     private void FixedUpdate()
@@ -107,6 +122,18 @@ public class CharacterMove : MonoBehaviour
         else
             isMoving = false;
         myRigid.MovePosition(transform.position + velocity * Time.deltaTime);
+        if(isMoving&&isGround)
+        {
+            if (!currentWalkSound.isPlaying)
+            {
+                currentWalkSound.Play();
+            }
+            
+        }
+        else
+        {
+            currentWalkSound.Stop();
+        }
     }
 
     //애니메이션 스크립트에서 상태를 받아오기 위한 get함수
