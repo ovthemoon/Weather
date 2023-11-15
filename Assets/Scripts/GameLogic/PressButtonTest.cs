@@ -4,6 +4,10 @@ public class PressButtonTest : MonoBehaviour
 {
     [SerializeField] private Animator animator;
     [SerializeField] private ButtonManager buttonManager;
+
+    [SerializeField] private AudioSource audioSource; // 오디오 소스 추가
+    [SerializeField] private AudioClip buttonPressClip; // 재생할 오디오 클립 추가
+
     public bool IsPressed { get; private set; } = false;
 
     private void OnCollisionEnter(Collision collision)
@@ -31,5 +35,12 @@ public class PressButtonTest : MonoBehaviour
         animator.SetBool("Down", isDown);
         Renderer render = GetComponent<Renderer>();
         render.material.color = isDown ? Color.green : Color.red;
+
+        if (isDown)
+        {
+            audioSource.PlayOneShot(buttonPressClip); // 버튼이 눌릴 때 오디오 재생
+        }
     }
+
+    
 }

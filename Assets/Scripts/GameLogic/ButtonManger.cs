@@ -6,6 +6,8 @@ public class ButtonManager : MonoBehaviour
     public List<PressButtonTest> buttons;
     public List<GameObject> portals; // 여러 포탈을 관리하기 위한 리스트
     [SerializeField] private Material activePortalMaterial; // 포탈 활성화 시 사용할 머티리얼
+    [SerializeField] private AudioSource audioSource; // 오디오 소스 추가
+    [SerializeField] private AudioClip portalActivationClip; // 재생할 오디오 클립 추가
 
     private Dictionary<GameObject, Material> originalPortalMaterials = new Dictionary<GameObject, Material>(); // 각 포탈의 원래 머티리얼을 저장
 
@@ -41,6 +43,11 @@ public class ButtonManager : MonoBehaviour
             portal.GetComponent<Collider>().isTrigger = activate;
             Renderer portalRenderer = portal.GetComponent<Renderer>();
             portalRenderer.material = activate ? activePortalMaterial : originalPortalMaterials[portal];
+        }
+        // 포탈 활성화 시 오디오 재생
+        if (activate && audioSource != null && portalActivationClip != null)
+        {
+            audioSource.PlayOneShot(portalActivationClip);
         }
     }
 }
