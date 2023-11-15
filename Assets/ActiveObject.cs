@@ -12,7 +12,7 @@ public class ActiveObject : MonoBehaviour
     void Start()
     {
         brokenGlass1.SetActive(GameManager.map2_DesertComplete);
-        brokenGlass1.SetActive(GameManager.map2_PoleComplete);
+        brokenGlass2.SetActive(GameManager.map2_PoleComplete);
 
         if(GameManager.map2_DesertComplete&& GameManager.map2_PoleComplete)
         {
