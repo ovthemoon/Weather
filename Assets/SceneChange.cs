@@ -1,15 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class SceneChange : MonoBehaviour
 {
     public string sceneName;
-    private void Start()
-    {
-        gameObject.SetActive(!GameManager.map2_DesertComplete);
-        gameObject.SetActive(!GameManager.map2_PoleComplete);
-    }
+    
     private void OnMouseDown()
     {
         LoadingSceneManager.LoadScene(sceneName);
