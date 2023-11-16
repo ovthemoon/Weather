@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class ClickMirror : MonoBehaviour
 {
+    
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +25,9 @@ public class ClickMirror : MonoBehaviour
             {
                 if (hit.transform.gameObject.tag == "Mirror")
                 {
-                   LoadingSceneManager.LoadScene("TitleScene");
+                    AudioSource clickMirror = GetComponent<AudioSource>();
+                    clickMirror.Play();
+                   //LoadingSceneManager.LoadScene("TitleScene");
 
                 }
 

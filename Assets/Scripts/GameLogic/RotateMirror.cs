@@ -8,6 +8,8 @@ public class RotateMirror : MonoBehaviour
 
     private void OnMouseDrag()
     {
+        AudioSource clickMirror = GetComponent<AudioSource>();
+        clickMirror.Play();
         float y = Input.GetAxis("Mouse X") * rotationSpeed;
         transform.eulerAngles = new Vector3(0, transform.eulerAngles.y + y, 0);
     }
