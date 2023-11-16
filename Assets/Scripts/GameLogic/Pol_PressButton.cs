@@ -19,6 +19,9 @@ public class Pol_PressButton : MonoBehaviour
         Renderer render = GetComponent<Renderer>();
         render.material.color = Color.green;
 
+        AudioSource button = GetComponent<AudioSource>();
+        button.Play();
+
         Vector3 a = door.transform.position;
         Vector3 b = target.position;
         door.transform.position = Vector3.Lerp(a, b, 0.1f);

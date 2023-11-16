@@ -43,7 +43,7 @@ public class CinemachineController : MonoBehaviour
             materialController[i].StartFadeTo();
         }
         */
-        
+
 
         yield return new WaitForSeconds(2f);
         cam.Priority = 9;
