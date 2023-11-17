@@ -6374,6 +6374,26 @@ PrefabInstance:
       propertyPath: m_Events.m_Events.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 124822823}
+    - target: {fileID: 213651558428867016, guid: 784eac3c962a60c4bb26c638e1317fae,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 2400.0745
+      objectReference: {fileID: 0}
+    - target: {fileID: 213651558428867016, guid: 784eac3c962a60c4bb26c638e1317fae,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 2011
+      objectReference: {fileID: 0}
+    - target: {fileID: 213651558428867016, guid: 784eac3c962a60c4bb26c638e1317fae,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 213651558428867016, guid: 784eac3c962a60c4bb26c638e1317fae,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1431761356509013811, guid: 784eac3c962a60c4bb26c638e1317fae,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -6499,6 +6519,12 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1756036555}
+    - target: {fileID: 5356742990880234469, guid: 784eac3c962a60c4bb26c638e1317fae,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 83f69bbd0ca04464f956e22d0b408fa2,
+        type: 3}
     - target: {fileID: 6662406912126683915, guid: 784eac3c962a60c4bb26c638e1317fae,
         type: 3}
       propertyPath: m_Sprite
@@ -6530,9 +6556,15 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9048823918877678803, guid: 784eac3c962a60c4bb26c638e1317fae,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 1621682836320634426, guid: 784eac3c962a60c4bb26c638e1317fae, type: 3}
+    - {fileID: 888792885453729766, guid: 784eac3c962a60c4bb26c638e1317fae, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 784eac3c962a60c4bb26c638e1317fae, type: 3}
