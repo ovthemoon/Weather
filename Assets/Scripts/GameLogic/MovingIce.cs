@@ -22,7 +22,7 @@ public class NewBehaviourScript : MonoBehaviour
     /*
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0)) // ¸¶¿ì½º ¿ÞÂÊ ¹öÆ°À» Å¬¸¯ÇßÀ» ¶§
+        if (Input.GetMouseButtonDown(0)) // ï¿½ï¿½ï¿½ì½º ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -38,9 +38,11 @@ public class NewBehaviourScript : MonoBehaviour
     
 
     private void OnMouseDown(){
+
         Debug.Log(isOn);
         isOn = !isOn;
         animator.SetBool("IsOn", isOn);
+
 
         Vector3 a = Ice.transform.position;
         Vector3 b = target.position;

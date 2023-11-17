@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class RadioOnOff : MonoBehaviour
 {
-    private string on = "¶óµğ¿À¸¦ Ä×´Ù";
-    private string off = "¶óµğ¿À¸¦ ²°´Ù";
+    private string on = "ë¼ë””ì˜¤ë¥¼ ì¼°ë‹¤.";
+    private string off = "ë¼ë””ì˜¤ë¥¼ ê»ë‹¤.";
     private bool isOn = true;
     private AudioSource source;
     private UIControllerScript uiControllerScript;

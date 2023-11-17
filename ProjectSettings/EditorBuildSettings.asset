@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameScene/Map3_PlayGround.unity
     guid: bca5991cdf99d4195aad929874519bc0
+  - enabled: 1
+    path: Assets/Scenes/GameScene/Map4_Creature.unity
+    guid: 428a85e780564264690a8a093a5985e0
   m_configObjects: {}
