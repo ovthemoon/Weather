@@ -5,12 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class ClickMirror : MonoBehaviour
 {
-    
+    public GameObject clearUI;
     
     // Start is called before the first frame update
     void Start()
     {
-        
+        clearUI.SetActive(false);
     }
 
     // Update is called once per frame
@@ -27,7 +27,7 @@ public class ClickMirror : MonoBehaviour
                 {
                     AudioSource clickMirror = GetComponent<AudioSource>();
                     clickMirror.Play();
-                   //LoadingSceneManager.LoadScene("TitleScene");
+                    clearUI.SetActive(true);
 
                 }
 
