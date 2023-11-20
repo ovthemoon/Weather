@@ -16,7 +16,7 @@ public class SpawnEffect : MonoBehaviour
     }
 
     
-    private void FadeSplitValue(float from, float to)
+    public void FadeSplitValue(float from, float to)
     {
         DOTween.To(() => from, x => {
             _material.SetFloat("_SplitValue", x);

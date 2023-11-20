@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class GameManager : Singleton<GameManager>
 {
     [SerializeField]  private Transform spawnPoint;
     [SerializeField]  private GameObject player;
+    public static bool map2_DesertComplete=false;
+    public static bool map2_PoleComplete=false;
     // Start is called before the first frame update
     void Start()
     {

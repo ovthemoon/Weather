@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
 using static UnityEngine.UI.Image;
+using Cinemachine;
 
 public class CloneManager : MonoBehaviour
 {
@@ -59,11 +61,28 @@ public class CloneManager : MonoBehaviour
             ChangeLayerRecursively(child, layer);
         }
     }
+    private void SetShadowCastingMode(GameObject obj, ShadowCastingMode mode)
+    {
+        // 현재 오브젝트의 Renderer에 대해 그림자 생성 설정을 변경합니다.
+        Renderer renderer = obj.GetComponent<Renderer>();
+        if (renderer != null)
+        {
+            renderer.shadowCastingMode = mode;
+        }
+
+        // 모든 자식에 대해서도 같은 작업을 반복합니다.
+        foreach (Transform child in obj.transform)
+        {
+            SetShadowCastingMode(child.gameObject, mode);
+        }
+    }
     private void OnTriggerEnter(Collider other)
     {
          if (!reflectedObjects.ContainsKey(other.gameObject)&& other.gameObject.layer != LayerMask.NameToLayer("StencilLayer1")&&!other.gameObject.CompareTag("CloneOfClone"))
          {
             GameObject cloneObject = Instantiate(other.gameObject);
+            //복사된 객체의 그림자 제거
+            SetShadowCastingMode(cloneObject, ShadowCastingMode.Off);
             if (!cloneObject.GetComponent<Animator>())
             {
                 cloneObject.tag = "Clone";
@@ -90,7 +109,7 @@ public class CloneManager : MonoBehaviour
 
         foreach (Transform child in parentTransform)
         {
-            if (child.GetComponent<Camera>())
+            if (child.GetComponent<CinemachineVirtualCamera>())
             {
                 Destroy(child.gameObject);
             }

@@ -13,6 +13,11 @@ TagManager:
   - CloneOfClone
   - Clone
   - HoldableObject
+  - ActiveButton1
+  - Pad
+  - Sea
+  - MagicAlice
+  - glass
   layers:
   - Default
   - TransparentFX

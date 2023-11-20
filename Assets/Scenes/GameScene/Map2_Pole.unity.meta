@@ -1,5 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scenes/GameScene/Map2_Pole.unity.meta
 guid: 4d7ce892fac654538964a6a58d556836
+========
+guid: 9caec7de0aa48334c801e1b28c761823
+folderAsset: yes
+>>>>>>>> 2d908cc48c11ae7f88b2bb25bf4eb24117247534:Assets/MapAssets/Mirror.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
