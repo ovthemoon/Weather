@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class ClickMirror : MonoBehaviour
 {
     public GameObject clearUI;
+    public CharacterMove player;
     
     // Start is called before the first frame update
     void Start()
@@ -28,7 +29,8 @@ public class ClickMirror : MonoBehaviour
                     AudioSource clickMirror = GetComponent<AudioSource>();
                     clickMirror.Play();
                     clearUI.SetActive(true);
-
+                    Cursor.lockState = CursorLockMode.None;
+                    player.canMove = false;
                 }
 
             }

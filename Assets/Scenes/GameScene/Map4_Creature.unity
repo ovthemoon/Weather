@@ -1077,7 +1077,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -3950,7 +3950,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05eaef6e32915674b8fbad41c83a0b7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clearUI: {fileID: 0}
+  clearUI: {fileID: 907036337}
+  player: {fileID: 267589429}
 --- !u!82 &518317790
 AudioSource:
   m_ObjectHideFlags: 0
