@@ -27,10 +27,10 @@ public class CloneManager : MonoBehaviour
         Vector3 directionToOriginal = other.transform.position - mirrorSurface.position;
         
 
-        // ¹æÇâ º¤ÅÍ¸¦ °Å¿ïÀÇ Á¤±Ô º¤ÅÍ¿¡ ´ëÇØ ¹Ý»ç½ÃÅµ´Ï´Ù.
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½Å¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Í¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ý»ï¿½ï¿½Åµï¿½Ï´ï¿½.
         Vector3 reflectedDirection = Vector3.Reflect(directionToOriginal, mirrorNormal);
 
-        // ¹Ý»çµÈ À§Ä¡¸¦ °è»êÇÕ´Ï´Ù.
+        // ï¿½Ý»ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
         Vector3 reflectedPosition = mirrorSurface.position + reflectedDirection.normalized * directionToOriginal.magnitude;
         reflectedObj.transform.position = reflectedPosition;
     }
@@ -44,7 +44,7 @@ public class CloneManager : MonoBehaviour
     {
         int layerIndex = LayerMask.NameToLayer(targetLayerName);
 
-        if (layerIndex == -1) // À¯È¿ÇÑ ·¹ÀÌ¾î ÀÌ¸§ÀÎÁö È®ÀÎ
+        if (layerIndex == -1) // ï¿½ï¿½È¿ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¾ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½
         {
             Debug.LogWarning("Layer " + targetLayerName + " does not exist!");
             return;
@@ -63,14 +63,14 @@ public class CloneManager : MonoBehaviour
     }
     private void SetShadowCastingMode(GameObject obj, ShadowCastingMode mode)
     {
-        // ÇöÀç ¿ÀºêÁ§Æ®ÀÇ Renderer¿¡ ´ëÇØ ±×¸²ÀÚ »ý¼º ¼³Á¤À» º¯°æÇÕ´Ï´Ù.
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ Rendererï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½×¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
         Renderer renderer = obj.GetComponent<Renderer>();
         if (renderer != null)
         {
             renderer.shadowCastingMode = mode;
         }
 
-        // ¸ðµç ÀÚ½Ä¿¡ ´ëÇØ¼­µµ °°Àº ÀÛ¾÷À» ¹Ýº¹ÇÕ´Ï´Ù.
+        // ï¿½ï¿½ï¿½ ï¿½Ú½Ä¿ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ï¿½ï¿½ ï¿½Ýºï¿½ï¿½Õ´Ï´ï¿½.
         foreach (Transform child in obj.transform)
         {
             SetShadowCastingMode(child.gameObject, mode);
@@ -81,7 +81,7 @@ public class CloneManager : MonoBehaviour
          if (!reflectedObjects.ContainsKey(other.gameObject)&& other.gameObject.layer != LayerMask.NameToLayer("StencilLayer1")&&!other.gameObject.CompareTag("CloneOfClone"))
          {
             GameObject cloneObject = Instantiate(other.gameObject);
-            //º¹»çµÈ °´Ã¼ÀÇ ±×¸²ÀÚ Á¦°Å
+            
             SetShadowCastingMode(cloneObject, ShadowCastingMode.Off);
             if (!cloneObject.GetComponent<Animator>())
             {
@@ -127,7 +127,7 @@ public class CloneManager : MonoBehaviour
 
         if (originalAnimator && cloneAnimator)
         {
-            // ¾Ö´Ï¸ÞÀÌ¼Ç µ¿±âÈ­
+            // ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½È­
             cloneAnimator.runtimeAnimatorController = originalAnimator.runtimeAnimatorController;
             cloneAnimator.Play(originalAnimator.GetCurrentAnimatorStateInfo(0).fullPathHash, 0, 
                 originalAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime);
@@ -159,7 +159,7 @@ public class CloneManager : MonoBehaviour
                 }
                 else if (parameter.type == AnimatorControllerParameterType.Trigger)
                 {
-                    // Æ®¸®°Å´Â ´Ü¼øÈ÷ °ªÀ» È®ÀÎÇÏ¿© ÇØ´ç Æ®¸®°Å°¡ È°¼ºÈ­µÇ¾î ÀÖÀ¸¸é Å¬·Ð¿¡µµ ¼³Á¤ÇÕ´Ï´Ù.
+                    // Æ®ï¿½ï¿½ï¿½Å´ï¿½ ï¿½Ü¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½Ø´ï¿½ Æ®ï¿½ï¿½ï¿½Å°ï¿½ È°ï¿½ï¿½È­ï¿½Ç¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½Ð¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
                     if (originalAnimator.GetBool(parameter.name))
                     {
                         cloneAnimator.SetTrigger(parameter.name);
